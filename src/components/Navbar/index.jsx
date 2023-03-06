@@ -63,7 +63,7 @@ export default function NavBar() {
                 <Dropdown />
               </li>
               <li className="text-gray-600 text-sm hover:text-blue-600">
-                <Link to="">Usuário</Link>
+                <Link to="/profile">Usuário</Link>
               </li>
               <li className="text-gray-600 text-sm hover:text-blue-600">
                 <Link to="">Ordens</Link>

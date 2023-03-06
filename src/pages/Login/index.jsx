@@ -17,7 +17,7 @@ export function Login() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  async function handleSumit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     try {
@@ -26,14 +26,14 @@ export function Login() {
 
       localStorage.setItem("loggedInUser", JSON.stringify(response.data));
 
-      navigate("/profile");
+      navigate(`/`);
     } catch (error) {
       console.log(error);
     }
   }
 
   return (
-    <form onSubmit={handleSumit}>
+    <form onSubmit={handleSubmit}>
       <label>Email:</label>
       <input
         type="email"
