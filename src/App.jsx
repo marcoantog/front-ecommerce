@@ -20,7 +20,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route
             path="/profile"
-            element={<ProtectedRoute component={Profile} />}
+            element={ <Profile />}
           />
 
           <Route path="*" element={<ErrorPage />} />

@@ -5,10 +5,12 @@ import { api } from "../../api/api";
 export function Profile() {
   const [user, setUser] = useState({ name: "", email: "" });
   const navigate = useNavigate();
+
   useEffect(() => {
     async function fetchUser() {
-      const response = await api.get("/user/profile");
-      setUser(response.data);
+      const response = await api.get(`/user/profile`);
+      console.log(response.data); 
+      setUser({ ...response.data });
     }
 
     fetchUser();
