@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import { ProtectedRoute } from "./components/ProtectedAdminRoute";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 import { AuthContextComponent } from "./context/authContext";
 import { ErrorPage } from "./pages/ErrorPage";
 import { Home } from "./pages/Home";
@@ -20,9 +20,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route
             path="/profile"
-            element={ <Profile />}
+            element={<ProtectedRoute component={Profile} />}
           />
-
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </AuthContextComponent>
