@@ -19,5 +19,5 @@ module.exports = withMT({
       pink: colors.fuchsia,
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 });
