@@ -9,6 +9,7 @@ import { Login } from "./pages/Login";
 import { Profile } from "./pages/Profile";
 import { Signup } from "./pages/Signup";
 import { CreateProduct } from "./pages/Create-Product";
+import { Orders } from "./pages/Orders";
 
 function App() {
   return (
@@ -26,6 +27,10 @@ function App() {
           <Route
             path="/create-product"
             element={<ProtectedRoute component={CreateProduct} />}
+          />
+           <Route
+            path="/orders"
+            element={<ProtectedRoute component={Orders} />}
           />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
