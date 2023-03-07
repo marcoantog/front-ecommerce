@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 export function ProtectedRoute(props) {
@@ -9,7 +10,8 @@ export function ProtectedRoute(props) {
 
   useEffect(() => {
     if (!parsedUser.token) {
-      console.log("negado");
+      console.log("Acesso negado");
+      toast.error("Por favor faça login.");
       navigate("/login");
     }
   }, []);

@@ -26,7 +26,7 @@ export default function NavBar() {
             <Link to="/">
               <h2 className="text-2xl font-bold">E-COMMERCE</h2>
             </Link>
-            <div className="md:hidden">
+            <div className={loggedInUser ? `md:hidden` : `hidden`}>
               <button
                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
                 onClick={() => setLoggedNavbar(!loggedNavbar)}
@@ -61,6 +61,8 @@ export default function NavBar() {
                   </svg>
                 )}
               </button>
+            </div>
+            <div className={loggedInUser ? `hidden` : `md:hidden`}>
               <button
                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
                 onClick={() => setNavbar(!navbar)}
@@ -116,10 +118,10 @@ export default function NavBar() {
                 <Link to="/profile">Usuário</Link>
               </li>
               <li className="text-gray-600 text-sm hover:text-blue-600">
-                <Link to="">Ordens</Link>
+                <Link to="/orders">Ordens</Link>
               </li>
               <li className="text-gray-600 text-sm  hover:text-blue-600">
-                <Link to="/create-page">Vender</Link>
+                <Link to="/create-product">Vender</Link>
               </li>
               <li>
                 <Button color="red" onClick={handleLogOut}>
@@ -134,7 +136,7 @@ export default function NavBar() {
               loggedInUser
                 ? `hidden`
                 : `flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
-                    loggedNavbar ? "block" : "hidden"
+                    navbar ? "block" : "hidden"
                   }`
             }`}
           >
