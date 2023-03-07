@@ -27,13 +27,13 @@ export function Home() {
   }, []);
 
   return (
-    <div className="" >
+    <div className=""  >
       <div className="container flex mx-auto bg-gray-200 rounded-xl p-8 m-10 gap-7 " >
         {products.map((currentProduct) => {
           if(currentProduct.category === "CLOTHES"){
           return (
-            <Card className="w-60">
-            <CardHeader floated={false} className="h-40">
+            <Card className="w-60"  key={currentProduct._id} >
+            <CardHeader floated={false} className="h-40" >
               <img className="" src={currentProduct.image} alt="profile-picture" />
             </CardHeader>
             <CardBody className="text-center">
@@ -55,7 +55,7 @@ export function Home() {
       {products.map((currentProduct) => {
           if(currentProduct.category === "TECHNOLOGY"){
           return (
-            <Card className="w-60">
+            <Card className="w-60" key={currentProduct._id} >
             <CardHeader floated={false} className="h-40">
               <img className="" src={currentProduct.image} alt="profile-picture" />
             </CardHeader>
@@ -78,7 +78,7 @@ export function Home() {
       {products.map((currentProduct) => {
           if(currentProduct.category === "HOUSE"){
           return (
-            <Card className="w-60">
+            <Card className="w-60" key={currentProduct._id} >
             <CardHeader floated={false} className="h-40">
               <img className="" src={currentProduct.image} alt="profile-picture" />
             </CardHeader>

@@ -10,7 +10,11 @@ import { Profile } from "./pages/Profile";
 import { Signup } from "./pages/Signup";
 import { CreateProduct } from "./pages/Create-Product";
 import { Orders } from "./pages/Orders";
+
+import { OrderDetails } from "./pages/OrderDetails";
+
 import { Toaster } from "react-hot-toast";
+
 
 function App() {
   return (
@@ -33,6 +37,10 @@ function App() {
           <Route
             path="/orders"
             element={<ProtectedRoute component={Orders} />}
+          />
+          <Route
+            path="/order-details/:orderId"
+            element={<ProtectedRoute component={OrderDetails} />}
           />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
