@@ -15,7 +15,7 @@ export default function NavBar() {
   function handleLogOut() {
     localStorage.removeItem("loggedInUser");
     setLoggedInUser(null);
-    navigate(`/login`);
+    navigate("/login");
   }
 
   return (
@@ -122,11 +122,9 @@ export default function NavBar() {
                 <Link to="/create-page">Vender</Link>
               </li>
               <li>
-                <Link to="/">
-                  <Button color="red" onClick={handleLogOut}>
-                    Logout
-                  </Button>
-                </Link>
+                <Button color="red" onClick={handleLogOut}>
+                  Logout
+                </Button>
               </li>
             </ul>
           </div>
