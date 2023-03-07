@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { api } from "../../api/api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
 
 export function Signup() {
@@ -231,13 +231,13 @@ export function Signup() {
               Register
             </Button>
             <Typography color="gray" className="mt-4 text-center font-normal">
-              Already have an account?{" "}
-              <a
-                href="#"
+              Já tem uma conta?{" "}
+              <Link
+                to="/login"
                 className="font-medium text-blue-500 transition-colors hover:text-blue-700"
               >
-                Sign In
-              </a>
+                Login
+              </Link>
             </Typography>
           </form>
         </div>

@@ -2,10 +2,16 @@ import { useState } from "react";
 import Dropdown from "./dropdown";
 import { Link } from "react-router-dom";
 import { Button } from "@material-tailwind/react";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../context/authContext";
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
 
+  const {loggedInUser} = useContext(AuthContext)
+
+
+  
   return (
     <nav className="w-full bg-white shadow">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
