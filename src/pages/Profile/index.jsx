@@ -41,9 +41,8 @@ export function Profile() {
     setUser(null);
     navigate("/");
   }
-console.log(user)
   return (
-    <div className="flex">
+    <div className="flex justify-center space-x-40 mt-5 ">
       <div>
       <Card className="w-96">
       <CardHeader floated={false} className="h-80">
