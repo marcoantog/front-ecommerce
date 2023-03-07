@@ -10,6 +10,9 @@ import {
 } from "@material-tailwind/react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export function Orders() {
   const [orders, setOrders] = useState([]);
@@ -34,91 +37,100 @@ export function Orders() {
         <h1>Ordens</h1>
       </div>
       <div className="container flex mx-auto bg-gray-200 rounded-xl p-8 m-10 gap-7">
-        {orders.map((currentOrder) => {
-          return (
-            <Card
-              color="blue"
-              variant="gradient"
-              className="w-full max-w-[20rem] p-8 transition-scale duration-500 ease-in-out transform hover:scale-110 rounded-lg"
-              key={currentOrder._id}
-            >
-              <CardHeader
-                floated={false}
-                shadow={false}
-                color="transparent"
-                className="m-0 mb-8 rounded-none border-b border-white/10 pb-8 text-center"
+        <Slider
+          dots={true}
+          infinite={true}
+          speed={500}
+          slidesToShow={3}
+          slidesToScroll={3}
+          className="w-full gap-7"
+        >
+          {orders.map((currentOrder) => {
+            return (
+              <Card
+                color="blue"
+                variant="gradient"
+                className="w-full max-w-[20rem] p-8 transition-scale duration-500 ease-in-out transform hover:scale-110 rounded-lg"
+                key={currentOrder._id}
               >
-                <Typography
-                  variant="small"
-                  color="white"
-                  className="font-normal uppercase"
+                <CardHeader
+                  floated={false}
+                  shadow={false}
+                  color="transparent"
+                  className="m-0 mb-8 rounded-none border-b border-white/10 pb-8 text-center"
                 >
-                  Produto: {`${currentOrder.productId.productName}`}
-                </Typography>
-                <Typography
-                  variant="h1"
-                  color="white"
-                  className="mt-6 flex justify-center gap-1 text-sm font-normal"
-                >
-                  Preço: {`${currentOrder.totalPrice}`}
-                </Typography>
-              </CardHeader>
-              <CardBody className="p-0">
-                <ul className="flex flex-col gap-4">
-                  <li className="flex items-center gap-4">
-                    <span className="rounded-full border border-white/20 bg-white/20 p-1">
-                      <CheckIcon strokeWidth={2} className="h-3 w-3" />
-                    </span>
-                    <Typography className="font-normal">
-                      Pagamento: {currentOrder.payment}
-                    </Typography>
-                  </li>
-                  <li className="flex items-center gap-4">
-                    <span className="rounded-full border border-white/20 bg-white/20 p-1">
-                      <CheckIcon strokeWidth={2} className="h-3 w-3" />
-                    </span>
-                    <Typography className="font-normal">
-                      Quantidade: {currentOrder.quantity}
-                    </Typography>
-                  </li>
-                  <li className="flex items-center gap-4">
-                    <span className="rounded-full border border-white/20 bg-white/20 p-1">
-                      <CheckIcon strokeWidth={2} className="h-3 w-3" />
-                    </span>
-                    <Typography className="font-normal"></Typography>
-                  </li>
-                  <li className="flex items-center gap-4">
-                    <span className="rounded-full border border-white/20 bg-white/20 p-1">
-                      <CheckIcon strokeWidth={2} className="h-3 w-3" />
-                    </span>
-                    <Typography className="font-normal">
-                      Status: {currentOrder.status}
-                    </Typography>
-                  </li>
-                  <li className="flex items-center gap-4">
-                    <span className="rounded-full border border-white/20 bg-white/20 p-1">
-                      <CheckIcon strokeWidth={2} className="h-3 w-3" />
-                    </span>
-                    <Typography className="font-normal"></Typography>
-                  </li>
-                </ul>
-              </CardBody>
-              <CardFooter className="mt-12 p-0">
-                <Link to={`/order-details/${currentOrder._id}`}>
-                  <Button
-                    size="lg"
+                  <Typography
+                    variant="small"
                     color="white"
-                    className="text-blue-500 hover:scale-[1.02] focus:scale-[1.02] active:scale-100"
-                    ripple={false}
-                    fullWidth={true}
+                    className="font-normal uppercase"
                   >
-                    Ver detalhes
-                  </Button>
-                </Link>
-              </CardFooter>
-            </Card>
-          );
-        })}
+                    Produto: {`${currentOrder.productId.productName}`}
+                  </Typography>
+                  <Typography
+                    variant="h1"
+                    color="white"
+                    className="mt-6 flex justify-center gap-1 text-sm font-normal"
+                  >
+                    Preço: {`${currentOrder.totalPrice}`}
+                  </Typography>
+                </CardHeader>
+                <CardBody className="p-0">
+                  <ul className="flex flex-col gap-4">
+                    <li className="flex items-center gap-4">
+                      <span className="rounded-full border border-white/20 bg-white/20 p-1">
+                        <CheckIcon strokeWidth={2} className="h-3 w-3" />
+                      </span>
+                      <Typography className="font-normal">
+                        Pagamento: {currentOrder.payment}
+                      </Typography>
+                    </li>
+                    <li className="flex items-center gap-4">
+                      <span className="rounded-full border border-white/20 bg-white/20 p-1">
+                        <CheckIcon strokeWidth={2} className="h-3 w-3" />
+                      </span>
+                      <Typography className="font-normal">
+                        Quantidade: {currentOrder.quantity}
+                      </Typography>
+                    </li>
+                    <li className="flex items-center gap-4">
+                      <span className="rounded-full border border-white/20 bg-white/20 p-1">
+                        <CheckIcon strokeWidth={2} className="h-3 w-3" />
+                      </span>
+                      <Typography className="font-normal"></Typography>
+                    </li>
+                    <li className="flex items-center gap-4">
+                      <span className="rounded-full border border-white/20 bg-white/20 p-1">
+                        <CheckIcon strokeWidth={2} className="h-3 w-3" />
+                      </span>
+                      <Typography className="font-normal">
+                        Status: {currentOrder.status}
+                      </Typography>
+                    </li>
+                    <li className="flex items-center gap-4">
+                      <span className="rounded-full border border-white/20 bg-white/20 p-1">
+                        <CheckIcon strokeWidth={2} className="h-3 w-3" />
+                      </span>
+                      <Typography className="font-normal"></Typography>
+                    </li>
+                  </ul>
+                </CardBody>
+                <CardFooter className="mt-12 p-0">
+                  <Link to={`/order-details/${currentOrder._id}`}>
+                    <Button
+                      size="lg"
+                      color="white"
+                      className="text-blue-500 hover:scale-[1.02] focus:scale-[1.02] active:scale-100"
+                      ripple={false}
+                      fullWidth={true}
+                    >
+                      Ver detalhes
+                    </Button>
+                  </Link>
+                </CardFooter>
+              </Card>
+            );
+          })}
+        </Slider>
       </div>
     </div>
   );
