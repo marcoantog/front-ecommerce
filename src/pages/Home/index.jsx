@@ -29,6 +29,7 @@ export function Home() {
 
   return (
     <div className="">
+
       <div className="container flex mx-auto bg-gray-200 rounded-xl m-10 relative">
         <Typography
           variant="h2"
@@ -87,6 +88,7 @@ export function Home() {
           }
         })}
       </div>
+
       <div className="container flex mx-auto bg-gray-200 rounded-xl m-10 relative">
         <Typography
           variant="h2"
@@ -145,6 +147,7 @@ export function Home() {
           }
         })}
       </div>
+
       <div className="container flex mx-auto bg-gray-200 rounded-xl m-10 relative">
         <Typography
           variant="h2"
