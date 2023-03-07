@@ -1,5 +1,13 @@
 import { useState, useEffect } from "react";
 import { api } from "../../api/api";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Tooltip,
+} from "@material-tailwind/react";
 
 export function Home() {
   const [products, setProducts] = useState([]);
@@ -19,24 +27,172 @@ export function Home() {
   }, []);
 
   return (
-    <>
-      <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
-        <p className="text-3xl text-gray-700 font-bold mb-5">Welcome!</p>
-        <p className="text-gray-500 text-lg">
-          React and Tailwind CSS in action
-        </p>
-      </div>
-      <div className="container flex mx-auto bg-gray-200 rounded-xl p-8 m-10 " >
+    <div className="" >
+      <div className="container flex mx-auto bg-gray-200 rounded-xl p-8 m-10 gap-7 " >
         {products.map((currentProduct) => {
+          if(currentProduct.category === "CLOTHES"){
           return (
-            <div>
-          <h2 className="font-black" >{currentProduct.productName}</h2>
-          <p className="text-sm" >{currentProduct.description}</p>
-          {/* <img>{currentProduct.image}</img> */}
-          </div>
+            <Card className="w-60">
+            <CardHeader floated={false} className="h-40">
+              <img className="" src={currentProduct.image} alt="profile-picture" />
+            </CardHeader>
+            <CardBody className="text-center">
+              <Typography variant="h4" color="blue-gray" className="mb-2">
+                {currentProduct.productName}
+              </Typography>
+              <Typography color="blue" className="font-medium" textGradient>
+                {currentProduct.description}
+              </Typography>
+            </CardBody>
+            <CardFooter className="flex justify-center gap-7 pt-2">
+              <Tooltip content="Like">
+                <Typography
+                  as="a"
+                  href="#facebook"
+                  variant="lead"
+                  color="blue"
+                  textGradient
+                >
+                  <i className="fab fa-facebook" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#twitter"
+                  variant="lead"
+                  color="light-blue"
+                  textGradient
+                >
+                  <i className="fab fa-twitter" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#instagram"
+                  variant="lead"
+                  color="purple"
+                  textGradient
+                >
+                  <i className="fab fa-instagram" />
+                </Typography>
+              </Tooltip>
+            </CardFooter>
+          </Card>
           ) 
-        })}
+        }})}
       </div>
-    </>
+      <div className="container flex mx-auto bg-gray-200 rounded-xl p-8 m-10 gap-7 " >
+      {products.map((currentProduct) => {
+          if(currentProduct.category === "TECHNOLOGY"){
+          return (
+            <Card className="w-60">
+            <CardHeader floated={false} className="h-40">
+              <img className="" src={currentProduct.image} alt="profile-picture" />
+            </CardHeader>
+            <CardBody className="text-center">
+              <Typography variant="h4" color="blue-gray" className="mb-2">
+                {currentProduct.productName}
+              </Typography>
+              <Typography color="blue" className="font-medium" textGradient>
+                {currentProduct.description}
+              </Typography>
+            </CardBody>
+            <CardFooter className="flex justify-center gap-7 pt-2">
+              <Tooltip content="Like">
+                <Typography
+                  as="a"
+                  href="#facebook"
+                  variant="lead"
+                  color="blue"
+                  textGradient
+                >
+                  <i className="fab fa-facebook" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#twitter"
+                  variant="lead"
+                  color="light-blue"
+                  textGradient
+                >
+                  <i className="fab fa-twitter" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#instagram"
+                  variant="lead"
+                  color="purple"
+                  textGradient
+                >
+                  <i className="fab fa-instagram" />
+                </Typography>
+              </Tooltip>
+            </CardFooter>
+          </Card>
+          ) 
+        }})}
+      </div>
+      <div className="container flex mx-auto bg-gray-200 rounded-xl p-8 m-10 gap-7 " >
+      {products.map((currentProduct) => {
+          if(currentProduct.category === "HOUSE"){
+          return (
+            <Card className="w-60">
+            <CardHeader floated={false} className="h-40">
+              <img className="" src={currentProduct.image} alt="profile-picture" />
+            </CardHeader>
+            <CardBody className="text-center">
+              <Typography variant="h4" color="blue-gray" className="mb-2">
+                {currentProduct.productName}
+              </Typography>
+              <Typography color="blue" className="font-medium" textGradient>
+                {currentProduct.description}
+              </Typography>
+            </CardBody>
+            <CardFooter className="flex justify-center gap-7 pt-2">
+              <Tooltip content="Like">
+                <Typography
+                  as="a"
+                  href="#facebook"
+                  variant="lead"
+                  color="blue"
+                  textGradient
+                >
+                  <i className="fab fa-facebook" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#twitter"
+                  variant="lead"
+                  color="light-blue"
+                  textGradient
+                >
+                  <i className="fab fa-twitter" />
+                </Typography>
+              </Tooltip>
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href="#instagram"
+                  variant="lead"
+                  color="purple"
+                  textGradient
+                >
+                  <i className="fab fa-instagram" />
+                </Typography>
+              </Tooltip>
+            </CardFooter>
+          </Card>
+          ) 
+        }})}
+      </div>
+    </div>
   );
 }
