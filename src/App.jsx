@@ -12,6 +12,7 @@ import { CreateProduct } from "./pages/Create-Product";
 import { Orders } from "./pages/Orders";
 import { OrderDetails } from "./pages/OrderDetails";
 import { Toaster } from "react-hot-toast";
+import { ProductDetails } from "./pages/Product-Details";
 
 function App() {
   return (
@@ -38,6 +39,10 @@ function App() {
           <Route
             path="/order-details/:orderId"
             element={<ProtectedRoute component={OrderDetails} />}
+          />
+          <Route
+            path="/product-details/:productId"
+            element={<ProtectedRoute component={ProductDetails} />}
           />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
