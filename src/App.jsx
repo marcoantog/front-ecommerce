@@ -10,12 +10,17 @@ import { Profile } from "./pages/Profile";
 import { Signup } from "./pages/Signup";
 import { CreateProduct } from "./pages/Create-Product";
 import { Orders } from "./pages/Orders";
+
 import { OrderDetails } from "./pages/OrderDetails";
+
+import { Toaster } from "react-hot-toast";
+
 
 function App() {
   return (
     <div className="bg-slate-500">
       <AuthContextComponent>
+        <Toaster />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
