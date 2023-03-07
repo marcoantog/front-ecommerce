@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { api } from "../../api/api";
-import { Card, Input, Button, Typography } from "@material-tailwind/react";
+import { Card, CardHeader, CardBody,  CardFooter, Input, Button, Tooltip, Typography } from "@material-tailwind/react";
+
 
 export function Profile() {
   const navigate = useNavigate();
 
   const [user, setUser] = useState({ name: "", email: "" });
+  const [reload, setReload] = useState(false)
 
   useEffect(() => {
     async function fetchUser() {
@@ -15,7 +17,7 @@ export function Profile() {
     }
 
     fetchUser();
-  }, []);
+  }, [reload]);
 
   function handleChange(e) {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -25,9 +27,10 @@ export function Profile() {
     try {
       e.preventDefault();
 
-      const infosForAPI = { data: { ...user } };
+      await api.put(`/user`, user);
 
-      await api.put(`/user`, infosForAPI);
+      setReload(!reload)
+
     } catch (err) {
       console.log(err);
     }
@@ -38,11 +41,61 @@ export function Profile() {
     setUser(null);
     navigate("/");
   }
-
+console.log(user)
   return (
     <div className="flex">
       <div>
-        <h1>{user.name}</h1>
+      <Card className="w-96">
+      <CardHeader floated={false} className="h-80">
+        <img src={user.image} alt="profile-picture" />
+      </CardHeader>
+      <CardBody className="text-center">
+        <Typography variant="h4" color="blue-gray" className="mb-2">
+         {user.name}
+        </Typography>
+        <Typography color="blue" className="font-medium" textGradient>
+          {user.email}
+        </Typography>
+      </CardBody>
+      <CardFooter className="flex justify-center gap-7 pt-2">
+        <Tooltip content="Like">
+          <Typography
+            as="a"
+            href="#facebook"
+            variant="lead"
+            color="blue"
+            textGradient
+          >
+            <i className="fab fa-facebook" />
+          </Typography>
+        </Tooltip>
+        <Tooltip content="Follow">
+          <Typography
+            as="a"
+            href="#twitter"
+            variant="lead"
+            color="light-blue"
+            textGradient
+          >
+            <i className="fab fa-twitter" />
+          </Typography>
+        </Tooltip>
+        <Tooltip content="Follow">
+          <Typography
+            as="a"
+            href="#instagram"
+            variant="lead"
+            color="purple"
+            textGradient
+          >
+            <i className="fab fa-instagram" />
+          </Typography>
+        </Tooltip>
+      </CardFooter>
+    </Card>
+        <Link to="/orders">
+       <p> Minhas ordens</p>
+        </Link>
       </div>
       <div>
         <form onSubmit={handleSubmit} className="mt-8 mb-2 sm:w-96">

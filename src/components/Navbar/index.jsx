@@ -18,7 +18,7 @@ export default function NavBar() {
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <a href="#">
-              <h2 className="text-2xl font-bold">E-COMMERCE</h2>
+            <Link to="/" > <h2 className="text-2xl font-bold">E-COMMERCE</h2></Link> 
             </a>
             <div className="md:hidden">
               <button
@@ -75,7 +75,7 @@ export default function NavBar() {
                 <Link to="">Ordens</Link>
               </li>
               <li className="text-gray-600 text-sm  hover:text-blue-600">
-                <Link to="">Vender</Link>
+                <Link to="/create-page">Vender</Link>
               </li>
               <li>
                 <Link to="">
