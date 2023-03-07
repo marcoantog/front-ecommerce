@@ -8,10 +8,11 @@ import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Profile } from "./pages/Profile";
 import { Signup } from "./pages/Signup";
+import { CreateProduct } from "./pages/Create-Product";
 
 function App() {
   return (
-    <>
+    <div className="bg-slate-500" >
       <AuthContextComponent>
         <Navbar />
         <Routes>
@@ -22,10 +23,14 @@ function App() {
             path="/profile"
             element={<ProtectedRoute component={Profile} />}
           />
+          <Route
+            path="/create-product"
+            element={<ProtectedRoute component={CreateProduct} />}
+          />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </AuthContextComponent>
-    </>
+    </div>
   );
 }
 
