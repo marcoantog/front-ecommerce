@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
-import { Card, Input, Button, Typography } from "@material-tailwind/react";
+import { Input, Button } from "@material-tailwind/react";
 
 export function Profile() {
-  const navigate = useNavigate();
 
   const [user, setUser] = useState({ name: "", email: "" });
 
@@ -33,12 +32,6 @@ export function Profile() {
     }
   }
 
-  function handleLogOut() {
-    localStorage.removeItem("loggedInUser");
-    setUser(null);
-    navigate("/");
-  }
-
   return (
     <div className="flex">
       <div>
@@ -54,7 +47,7 @@ export function Profile() {
               label="Usuário"
               id="formUser"
               name="userName"
-              value={user.userName}
+              value={user.userName || ''}
               required
               onChange={handleChange}
             />
@@ -64,7 +57,7 @@ export function Profile() {
               size="lg"
               label="Nome completo"
               name="name"
-              value={user.name}
+              value={user.name || ''}
               required
               onChange={handleChange}
             />
@@ -74,7 +67,7 @@ export function Profile() {
               size="lg"
               label="Rua"
               name="street"
-              value={user.street}
+              value={user.street || ''}
               type="text"
               required
               onChange={handleChange}
@@ -85,7 +78,7 @@ export function Profile() {
               size="lg"
               label="Número"
               name="houseNumber"
-              value={user.houseNumber}
+              value={user.houseNumber || ''}
               type="number"
               required
               onChange={handleChange}
@@ -96,7 +89,7 @@ export function Profile() {
               size="lg"
               label="Complemento"
               name="apartmentNumber"
-              value={user.apartmentNumber}
+              value={user.apartmentNumber || ''}
               type="text"
               onChange={handleChange}
             />
@@ -106,7 +99,7 @@ export function Profile() {
               size="lg"
               label="Cidade"
               name="city"
-              value={user.city}
+              value={user.city || ''}
               type="text"
               onChange={handleChange}
             />
@@ -117,7 +110,7 @@ export function Profile() {
               size="lg"
               label="Bairro"
               name="neighborhood"
-              value={user.neighborhood}
+              value={user.neighborhood || ''}
               type="text"
               onChange={handleChange}
             />
@@ -128,7 +121,7 @@ export function Profile() {
               size="lg"
               label="Estado"
               name="state"
-              value={user.state}
+              value={user.state || ''}
               type="text"
               maxLength="5"
               list="estados"
@@ -141,7 +134,7 @@ export function Profile() {
               size="lg"
               label="CEP"
               name="CEP"
-              value={user.CEP}
+              value={user.CEP || ''}
               type="text"
               required
               maxLength="9"
@@ -156,7 +149,7 @@ export function Profile() {
               name="email"
               type="email"
               required
-              value={user.email}
+              value={user.email || ''}
               onChange={handleChange}
             />
             {/* <Input
@@ -167,11 +160,11 @@ export function Profile() {
               name="password"
               type="password"
               required
-              value={user.password}
+              value={user.password || ''}
               onChange={handleChange}
               size="lg"
             /> */}
-            <Button color="yellow" type="submit" >Confirmar edição</Button>
+            <Button color="yellow" type="submit">Confirmar edição</Button>
           </div>
         </form>
       </div>
