@@ -1,6 +1,6 @@
 import { api } from "../../api/api";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import {
   Card,
   CardHeader,
@@ -15,6 +15,7 @@ export function EditProduct() {
   const params = useParams();
   const [product, setProduct] = useState({});
   const [img, setImg] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchProduct() {
@@ -52,7 +53,7 @@ export function EditProduct() {
     try {
       e.preventDefault();
       const imgURL = await handleUpload();
-      const response = await api.put(`/product/${params.productId}`, {
+      await api.put(`/product/${params.productId}`, {
         ...product,
         image: imgURL,
       });
@@ -99,7 +100,7 @@ export function EditProduct() {
                   size="lg"
                   label="Título do produto"
                   name="productName"
-                  value={product.productName}
+                  value={product.productName || ""}
                   required
                   onChange={handleChange}
                 />
@@ -107,7 +108,7 @@ export function EditProduct() {
                   size="lg"
                   label="Descrição"
                   name="description"
-                  value={product.description}
+                  value={product.description || ""}
                   required
                   onChange={handleChange}
                 />
@@ -115,7 +116,7 @@ export function EditProduct() {
                   size="lg"
                   label="Categoria"
                   name="category"
-                  value={product.category}
+                  value={product.category || ""}
                   list="categorias"
                   type="text"
                   required
@@ -125,7 +126,7 @@ export function EditProduct() {
                   size="lg"
                   label="Preço"
                   name="price"
-                  value={product.price}
+                  value={product.price || ""}
                   type="number"
                   required
                   onChange={handleChange}
@@ -134,7 +135,7 @@ export function EditProduct() {
                   size="lg"
                   label="Quantidade"
                   name="quantity"
-                  value={product.quantity}
+                  value={product.quantity || ""}
                   type="number"
                   onChange={handleChange}
                 />
@@ -143,16 +144,15 @@ export function EditProduct() {
                   id="isUsed"
                   name="isUsed"
                   label="Novo"
-                  value={(product.isUsed = true)}
+                  value={(product.isUsed = true) || ""}
                 />
                 <Radio
                   id="Used"
                   name="isUsed"
                   label="Usado"
-                  value={(product.isUsed = false)}
+                  value={(product.isUsed = false) || ""}
                 />
               </div>
-
               <Button color="green" className="mt-6" fullWidth type="submit">
                 Editar produto
               </Button>
