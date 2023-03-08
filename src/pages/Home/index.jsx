@@ -12,6 +12,7 @@ import {
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 
 export function Home() {
   const [products, setProducts] = useState([]);
@@ -84,9 +85,12 @@ export function Home() {
                         />
                       </Tooltip>
                     </div>
-                    <Typography className="font-normal text-blue-400 hover:underline hover:text-blue-800">
-                      Saiba mais!
-                    </Typography>
+                    <Link to={`/product-details/${currentProduct._id}`}>
+                      {" "}
+                      <Typography className="font-normal text-blue-400 hover:underline hover:text-blue-800">
+                        Saiba mais!
+                      </Typography>
+                    </Link>
                   </CardFooter>
                 </Card>
               );
@@ -147,9 +151,12 @@ export function Home() {
                         />
                       </Tooltip>
                     </div>
-                    <Typography className="font-normal text-blue-400 hover:underline hover:text-blue-800">
-                      Saiba mais!
-                    </Typography>
+                    <Link to={`/product-details/${currentProduct._id}`}>
+                      {" "}
+                      <Typography className="font-normal text-blue-400 hover:underline hover:text-blue-800">
+                        Saiba mais!
+                      </Typography>
+                    </Link>
                   </CardFooter>
                 </Card>
               );
@@ -210,9 +217,11 @@ export function Home() {
                         />
                       </Tooltip>
                     </div>
-                    <Typography className="font-normal text-blue-400 hover:underline hover:text-blue-800">
-                      Saiba mais!
-                    </Typography>
+                    <Link to={`/product-details/${currentProduct._id}`}>
+                      <Typography className="font-normal text-blue-400 hover:underline hover:text-blue-800">
+                        Saiba mais!
+                      </Typography>
+                    </Link>
                   </CardFooter>
                 </Card>
               );

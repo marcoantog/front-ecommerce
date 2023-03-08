@@ -13,6 +13,7 @@ import { Orders } from "./pages/Orders";
 import { OrderDetails } from "./pages/OrderDetails";
 import { Toaster } from "react-hot-toast";
 import { ProductDetails } from "./pages/Product-Details";
+import { ProductsUser } from "./pages/Products-User";
 
 function App() {
   return (
@@ -43,6 +44,10 @@ function App() {
           <Route
             path="/product-details/:productId"
             element={<ProtectedRoute component={ProductDetails} />}
+          />
+          <Route
+            path="/products-user"
+            element={<ProtectedRoute component={ProductsUser} />}
           />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
