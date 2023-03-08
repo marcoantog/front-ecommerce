@@ -32,32 +32,32 @@ export function Home() {
 
   return (
     <div className="">
-      <div className="flex space-x-4 mx-auto bg-gray-200 rounded-xl p-8 m-10">
+      <div className="flex mx-auto bg-gray-200 rounded-xl p-8 m-10">
         <Slider
           dots={true}
           infinite={true}
           speed={500}
-          slidesToShow={4}
+          slidesToShow={3}
           slidesToScroll={3}
-          className="w-full gap-7"
+          className="w-full h-full"
         >
           {products.map((currentProduct) => {
             if (currentProduct.category === "CLOTHES") {
               return (
                 <Card
-                  className="max-w-[18rem] max-h-[20rem] overflow-hidden transition-scale duration-500 ease-in-out transform hover:scale-110 rounded-lg"
+                  className="max-w-[18rem] max-h-[20rem] overflow-hidden"
                   key={currentProduct._id}
                 >
                   <CardHeader
                     floated={false}
                     shadow={false}
                     color="transparent"
-                    className="m-0 rounded-none"
+                    className="m-0 rounded-none flex justify-center"
                   >
                     <img
                       src={currentProduct.image}
                       alt={currentProduct.name}
-                      className="object-fill "
+                      className="h-28 pt-2"
                     />
                   </CardHeader>
                   <CardBody className="pb-1 pt-1">
@@ -84,7 +84,9 @@ export function Home() {
                         />
                       </Tooltip>
                     </div>
-                    <Typography className="font-normal">Saiba mais!</Typography>
+                    <Typography className="font-normal text-blue-400 hover:underline hover:text-blue-800">
+                      Saiba mais!
+                    </Typography>
                   </CardFooter>
                 </Card>
               );
@@ -93,39 +95,32 @@ export function Home() {
         </Slider>
       </div>
 
-      <div className="container flex mx-auto bg-gray-200 rounded-xl m-10 relative">
-        <Typography
-          variant="h2"
-          className="text-gray-50 absolute p-1"
-          textGradient
-        >
-          TECNOLOGIA
-        </Typography>
+      <div className="flex mx-auto bg-gray-200 rounded-xl p-8 m-10">
         <Slider
           dots={true}
           infinite={true}
           speed={500}
-          slidesToShow={4}
+          slidesToShow={3}
           slidesToScroll={3}
-          className="w-full gap-7"
+          className="w-full h-full"
         >
           {products.map((currentProduct) => {
             if (currentProduct.category === "TECHNOLOGY") {
               return (
                 <Card
-                  className="m-8 max-w-[18rem] max-h-[20rem] overflow-hidden transition-scale duration-500 ease-in-out transform hover:scale-110 rounded-lg"
+                  className="max-w-[18rem] max-h-[20rem] overflow-hidden"
                   key={currentProduct._id}
                 >
                   <CardHeader
                     floated={false}
                     shadow={false}
                     color="transparent"
-                    className="m-0 rounded-none"
+                    className="m-0 rounded-none flex justify-center"
                   >
                     <img
                       src={currentProduct.image}
                       alt={currentProduct.name}
-                      className="object-fill "
+                      className="h-28 pt-2"
                     />
                   </CardHeader>
                   <CardBody className="pb-1 pt-1">
@@ -152,7 +147,9 @@ export function Home() {
                         />
                       </Tooltip>
                     </div>
-                    <Typography className="font-normal">Saiba mais!</Typography>
+                    <Typography className="font-normal text-blue-400 hover:underline hover:text-blue-800">
+                      Saiba mais!
+                    </Typography>
                   </CardFooter>
                 </Card>
               );
@@ -162,38 +159,31 @@ export function Home() {
       </div>
 
       <div className="container flex mx-auto bg-gray-200 rounded-xl m-10 relative">
-        <Typography
-          variant="h2"
-          className="text-gray-50 absolute p-1"
-          textGradient
-        >
-          CASA
-        </Typography>
         <Slider
           dots={true}
           infinite={true}
           speed={500}
-          slidesToShow={4}
+          slidesToShow={3}
           slidesToScroll={3}
-          className="w-full gap-7"
+          className="w-full h-full"
         >
           {products.map((currentProduct) => {
             if (currentProduct.category === "HOUSE") {
               return (
                 <Card
-                  className="m-8 max-w-[18rem] max-h-[20rem] overflow-hidden transition-scale duration-500 ease-in-out transform hover:scale-110 rounded-lg"
+                  className="max-w-[18rem] max-h-[20rem] overflow-hidden"
                   key={currentProduct._id}
                 >
                   <CardHeader
                     floated={false}
                     shadow={false}
                     color="transparent"
-                    className="m-0 rounded-none"
+                    className="m-0 rounded-none flex justify-center"
                   >
                     <img
                       src={currentProduct.image}
                       alt={currentProduct.name}
-                      className="object-fill "
+                      className="h-28 pt-2"
                     />
                   </CardHeader>
                   <CardBody className="pb-1 pt-1">
@@ -220,7 +210,9 @@ export function Home() {
                         />
                       </Tooltip>
                     </div>
-                    <Typography className="font-normal">Saiba mais!</Typography>
+                    <Typography className="font-normal text-blue-400 hover:underline hover:text-blue-800">
+                      Saiba mais!
+                    </Typography>
                   </CardFooter>
                 </Card>
               );
