@@ -24,7 +24,6 @@ export function Profile() {
       const response = await api.get(`/user/profile`);
       setUser({ ...response.data });
     }
-
     fetchUser();
   }, [reload]);
 
@@ -90,6 +89,11 @@ export function Profile() {
         <Link to="/orders">
           <Typography className="text-blue-400 hover:text-blue-800 mt-5">
             Minhas ordens
+          </Typography>
+        </Link>
+        <Link to="/products-user">
+          <Typography className="text-blue-400 hover:text-blue-800 mt-5">
+            Meus produtos
           </Typography>
         </Link>
       </div>
