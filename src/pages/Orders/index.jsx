@@ -30,7 +30,6 @@ export function Orders() {
 
     fetchOrders();
   }, []);
-  console.log(orders);
   return (
     <div className="">
       <div>
