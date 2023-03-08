@@ -14,6 +14,7 @@ import { OrderDetails } from "./pages/OrderDetails";
 import { Toaster } from "react-hot-toast";
 import { ProductDetails } from "./pages/Product-Details";
 import { ProductsUser } from "./pages/Products-User";
+import { EditProduct } from "./pages/Edit-Product";
 
 function App() {
   return (
@@ -48,6 +49,10 @@ function App() {
           <Route
             path="/products-user"
             element={<ProtectedRoute component={ProductsUser} />}
+          />
+          <Route
+            path="/edit-product/:productId"
+            element={<ProtectedRoute component={EditProduct} />}
           />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
