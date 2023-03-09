@@ -34,16 +34,16 @@ export function CategoryProducts() {
   }, [category, products]);
 
   return (
-    <div>
+    <div className="flex flex-col justify-center">
       <div>
         <h1>Categoria</h1>
       </div>
       {!load && (
-        <div>
+        <div className="flex flex-col center">
           {filteredProducts.map((product, i) => {
             return (
-              <Link key={product._id} to={`/product-details/${product._id}`}>
-                <div className="mt-5" key={i}>
+              <div className="mt-5 max-w-fit flex" key={i}>
+                <Link key={product._id} to={`/product-details/${product._id}`}>
                   <div className="max-w-3xl mx-auto bg-white rounded-lg overflow-hidden shadow-md md:flex">
                     <div className="md:flex-shrink-0">
                       <img
@@ -75,8 +75,8 @@ export function CategoryProducts() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </div>
             );
           })}
         </div>
