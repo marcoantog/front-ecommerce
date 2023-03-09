@@ -25,10 +25,13 @@ export function Home() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await api.get("/product");
+        if (loggedInUser) {
+          const response = await api.get("/product");
 
-        setProducts([...response.data]);
-        setLoad(false);
+          setProducts([...response.data]);
+          setLoad(false);
+        }
+        return;
       } catch (err) {
         console.log(err);
       }
@@ -39,17 +42,17 @@ export function Home() {
 
   return (
     <>
+      <div className={loggedInUser ? "hidden" : "m-8 flex justify-center"}>
+        <Link to="/signup">
+          <img
+            src={"https://i.imgur.com/PprmzJk.png"}
+            alt="Bem vindo"
+            className="h-screen"
+          />
+        </Link>
+      </div>
       {!load && (
         <>
-          <div className={loggedInUser ? "hidden" : "m-8 flex justify-center"}>
-            <Link to="/signup">
-              <img
-                src={"https://i.imgur.com/PprmzJk.png"}
-                alt="Bem vindo"
-                className="h-screen"
-              />
-            </Link>
-          </div>
           <div className={loggedInUser ? "" : "hidden"}>
             <SearchBar search={search} setSearch={setSearch} />
 
