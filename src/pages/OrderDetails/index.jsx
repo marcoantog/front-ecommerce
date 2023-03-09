@@ -116,7 +116,6 @@ export function OrderDetails() {
               <CardFooter className="pb-4">
                 <span>{`${order.status}`}</span>
               </CardFooter>
-
               <Progress color="green" value={handleProgress()} />
             </Card>
           </>
