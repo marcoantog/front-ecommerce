@@ -9,11 +9,12 @@ import {
   Dialog,
   DialogHeader,
   DialogBody,
-  DialogFooter,
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
 } from "@material-tailwind/react";
 import ConfirmOrder from "../ConfirmOrder";
 import { WishListContext } from "../../context/WishListContext";
-
 
 export function ProductDetails() {
   const params = useParams();
@@ -22,7 +23,7 @@ export function ProductDetails() {
   const [load, setLoad] = useState(true);
   const [size, setSize] = useState(null);
   const [user, setUser] = useState({ name: "", email: "" });
-
+  const [open, setOpen] = useState(1);
   const handleOpen = (value) => setSize(value);
 
   useEffect(() => {
@@ -40,7 +41,6 @@ export function ProductDetails() {
     fetchProducts();
   }, []);
 
-
   useEffect(() => {
     async function fetchUser() {
       try {
@@ -53,56 +53,78 @@ export function ProductDetails() {
     fetchUser();
   }, []);
 
-
   const { wishList, setWishList } = useContext(WishListContext);
 
   function addToWishList() {
-    setWishList([...wishList, product]);
+    if (!wishList.includes(product)) {
+      setWishList([...wishList, product]);
+    }
   }
 
+  const handleToggle = (value) => {
+    setOpen(open === value ? 0 : value);
+  };
+
+  const formatter = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
 
   return (
     <>
       <div>
-        <div>
-          <h1 className="text-3xl font-bold text-gray-800 mb-8">
-            Product Details
-          </h1>
-        </div>
         {!load && (
           <div>
-            <div className="max-w-3xl mx-auto bg-white rounded-lg overflow-hidden shadow-md md:flex">
-              <div className="md:flex-shrink-0">
+            <div className="max-w-6xl mx-auto bg-purple-50 overflow-hidden shadow-md flex justify-center flex-wrap mt-10">
+              <div className="flex justify-end p-3 w-full mr-8">
+                <button
+                  onClick={addToWishList}
+                  className={
+                    wishList.includes(product)
+                      ? "text-red-700 w-1"
+                      : "hover:text-red-700 w-1"
+                  }
+                >
+                  <span className="text-3xl">❤</span>
+                </button>
+              </div>
+              <div className="grid justify-items-center uppercase tracking-wide text-2xl text-indigo-500 font-semibold w-full">
+                {product.productName}
+              </div>
+
+              <div className="flex justify-center w-full mt-5">
                 <img
-                  className="h-64 w-full object-cover md:w-64"
+                  className="h-96 w-96"
                   src={product.image}
                   alt={product.productName}
                 />
               </div>
               <div className="p-8 md:flex-1">
-                <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-                  {product.productName}
-                </div>
-                <p className="mt-2 text-gray-600 text-sm">
-                  {product.description}
-                </p>
-
-                <div className="mt-8 flex items-center justify-center ">
+                <div className="mt-8 flex justify-center ">
                   <span className="text-green-500 font-semibold text-xl">
-                    R${product.price}
+                    {formatter.format(product.price)}
                   </span>
                 </div>
-                <div>
-                  <p className="mx-12 font-bold  ">
-                    Em estoque: {product.quantity}
-                  </p>
-                </div>
+                <Accordion open={open === 0}>
+                  <AccordionHeader onClick={() => handleToggle(1)}>
+                    Descrição
+                  </AccordionHeader>
+                  <AccordionBody>{product.description}</AccordionBody>
+                </Accordion>
+                <p className="mt-2 text-gray-600 text-sm"></p>
+
                 <div className="flex justify-center mt-10">
-                  <button className="bg-indigo-500 text-white rounded-lg px-4 py-2 hover:bg-indigo-700">
-                    Add to Cart
-                  </button>
+                  <div className="py-2">
+                    <p className="font-bold  ">
+                      Quantidade: {product.quantity}
+                    </p>
+                  </div>
                   <Button
-                    className="ml-4 border rounded-lg px-4 py-2 hover:border-indigo-500"
+                    className={
+                      product.quantity === 0
+                        ? "hidden"
+                        : "ml-4 border rounded-lg px-4 py-2 hover:border-indigo-500"
+                    }
                     onClick={() => handleOpen("xl")}
                     variant="gradient"
                   >
@@ -116,26 +138,6 @@ export function ProductDetails() {
                     </Link>
                   )}
                 </div>
-
-              </div>
-              <div className="flex justify-center mt-10">
-                <button
-                  onClick={addToWishList}
-                  className="bg-indigo-500 text-white rounded-lg px-4 py-2 hover:bg-indigo-700"
-                >
-                  Add to wishlist
-                </button>
-                <button className="ml-4 border rounded-lg px-4 py-2 hover:border-indigo-500">
-                  Buy Now
-                </button>
-                {product.sellerId._id === loggedInUser.user._id && (
-                  <Link to={`/edit-product/${product._id}`}>
-                    <button className="bg-yellow-400 ml-4 border rounded-lg px-8 py-2 hover:border-indigo-500">
-                      Edit
-                    </button>
-                  </Link>
-                )}
-
               </div>
             </div>
           </div>

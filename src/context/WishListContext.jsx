@@ -4,7 +4,6 @@ const WishListContext = createContext(null);
 
 function WishListComponent(props) {
   const [wishList, setWishList] = useState([]);
-  console.log(wishList);
 
   return (
     <WishListContext.Provider value={{ wishList, setWishList }}>
