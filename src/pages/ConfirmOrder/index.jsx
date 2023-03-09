@@ -21,7 +21,7 @@ function ConfirmOrder(props) {
     payment: "",
     productId: product._id,
     quantity: qty,
-    totalPrice: "",
+    totalPrice: product.price,
   });
 
   console.log(form);
@@ -32,8 +32,9 @@ function ConfirmOrder(props) {
       return;
     }
     setQty(e.target.value);
-
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const clone = { ...form };
+    clone.totalPrice = e.target.value * product.price;
+    setForm({ ...clone, [e.target.name]: e.target.value });
   }
 
   function handleChange(e) {
@@ -100,12 +101,9 @@ function ConfirmOrder(props) {
 
         <div>
           <u>Valor total:</u>{" "}
-          <input
-            className="text-green-600 font-bold"
-            onChange={handleChange}
-            name="totalPrice"
-            value={product.price * qty}
-          />
+          <span className="text-green-600 font-bold">
+            {formatter.format(form.totalPrice)}
+          </span>
         </div>
       </div>
       <div className="mb-4">
