@@ -1,8 +1,9 @@
 import { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../api/api";
 import { AuthContext } from "../../context/authContext";
 import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import {
   Button,
@@ -17,6 +18,7 @@ import ConfirmOrder from "../ConfirmOrder";
 import { WishListContext } from "../../context/WishListContext";
 
 export function ProductDetails() {
+  const navigate = useNavigate();
   const params = useParams();
   const [product, setProduct] = useState({});
   const { loggedInUser } = useContext(AuthContext);
@@ -69,6 +71,17 @@ export function ProductDetails() {
     style: "currency",
     currency: "BRL",
   });
+
+  async function handleDelete() {
+    try {
+      const response = await api.delete(`/product/${params.productId}`);
+      console.log(response);
+
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <>
@@ -147,6 +160,14 @@ export function ProductDetails() {
                         Edit
                       </button>
                     </Link>
+                  )}
+                  {product.sellerId._id === loggedInUser.user._id && (
+                    <Button
+                      onClick={handleDelete}
+                      className="bg-red-400 ml-4 border rounded-lg px-8 py-2 hover:border-indigo-500"
+                    >
+                      Deletar
+                    </Button>
                   )}
                 </div>
               </div>

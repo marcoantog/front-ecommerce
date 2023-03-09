@@ -27,7 +27,8 @@ export function CategoryProducts() {
   useEffect(() => {
     if (products.length > 0) {
       const filtered = products.filter(
-        (product) => product.category === category
+        (product) =>
+          product.category === category || product.isAvaliable === true
       );
       setFilteredProducts(filtered);
     }
