@@ -105,11 +105,22 @@ export function ProductDetails() {
               </div>
 
               <div className="flex justify-center w-full mt-5">
-                <img
-                  className="h-96 w-96"
-                  src={product.image}
-                  alt={product.productName}
-                />
+                <div className="m-0 rounded-none grid justify-items-center relative">
+                  <img
+                    className="h-96 w-96 bg-cover"
+                    src={product.image}
+                    alt={product.productName}
+                  />
+                  <div
+                    className={
+                      product.quantity === 0
+                        ? "absolute mt-44 text-red-500 font-bold bg-white bg-opacity-80 w-full text-4xl"
+                        : "hidden"
+                    }
+                  >
+                    Esgotado
+                  </div>
+                </div>
               </div>
               <div className="p-8 md:flex-1">
                 <div className="mt-8 flex justify-center ">
