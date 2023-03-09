@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../api/api";
 import { AuthContext } from "../../context/authContext";
 import { Link } from "react-router-dom";
-import { Navigate } from "react-router-dom";
 
 import {
   Button,
