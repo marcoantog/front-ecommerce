@@ -28,7 +28,7 @@ export function CategoryProducts() {
     if (products.length > 0) {
       const filtered = products.filter(
         (product) =>
-          product.category === category || product.isAvaliable === true
+          product.category === category && product.isAvaliable === true
       );
       setFilteredProducts(filtered);
     }
@@ -37,14 +37,14 @@ export function CategoryProducts() {
   return (
     <div className="flex flex-col justify-center">
       <div>
-        <h1>Categoria</h1>
+        <h1 className="mt-3 text-xl font-bold">{category}</h1>
       </div>
       {!load && (
         <div className="grid w-full flex-col justify-center">
           {filteredProducts.map((product, i) => {
             return (
               <Link key={product._id} to={`/product-details/${product._id}`}>
-                <div className="w-6xl mt-3 bg-white rounded-lg overflow-hidden shadow-md md:flex">
+                <div className="w-6xl mt-8 bg-white rounded-lg overflow-hidden shadow-md md:flex">
                   <div className="md:flex-shrink-0">
                     <img
                       className="h-64 w-full object-cover md:w-64"
