@@ -1,9 +1,13 @@
 import { useContext } from "react";
 import { WishListContext } from "../../context/WishListContext";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 export function WishList() {
   const { wishList } = useContext(WishListContext);
+
+  function removeFromWishList() {
+    localStorage.removeItem("wishList", JSON.stringify(wishList));
+  }
 
   console.log(wishList);
   return (
@@ -15,7 +19,7 @@ export function WishList() {
       <div className="grid w-full flex-col justify-center">
         {wishList.map((product, i) => {
           return (
-            <Link key={product._id} to={`/product-details/${product._id}`}>
+            <Link to={`/product-details/${product._id}`}>
               <div className="w-6xl mt-3 bg-white rounded-lg overflow-hidden shadow-md md:flex">
                 <div className="md:flex-shrink-0">
                   <img
