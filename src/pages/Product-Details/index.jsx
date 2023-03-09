@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { api } from "../../api/api";
 import { AuthContext } from "../../context/authContext";
 import { Link } from "react-router-dom";
+import { WishListContext } from "../../context/WishListContext";
 
 export function ProductDetails() {
   const params = useParams();
@@ -22,11 +23,15 @@ export function ProductDetails() {
         console.log(err);
       }
     }
-
     fetchProducts();
   }, []);
-  console.log(product);
-  console.log(loggedInUser);
+
+  const { wishList, setWishList } = useContext(WishListContext);
+
+  function addToWishList() {
+    setWishList([...wishList, product]);
+  }
+
   return (
     <div>
       <div>
@@ -62,8 +67,11 @@ export function ProductDetails() {
                 </p>
               </div>
               <div className="flex justify-center mt-10">
-                <button className="bg-indigo-500 text-white rounded-lg px-4 py-2 hover:bg-indigo-700">
-                  Add to Cart
+                <button
+                  onClick={addToWishList}
+                  className="bg-indigo-500 text-white rounded-lg px-4 py-2 hover:bg-indigo-700"
+                >
+                  Add to wishlist
                 </button>
                 <button className="ml-4 border rounded-lg px-4 py-2 hover:border-indigo-500">
                   Buy Now
