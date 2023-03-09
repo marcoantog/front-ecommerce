@@ -61,6 +61,7 @@ export function OrderDetails() {
               <CardBody className="flex space-x-6 items-center ">
                 <div>
                   <img
+                    className="max-h-60 max-w-3xl"
                     src={`${order.productId.image}`}
                     alt={order.productId.productName}
                   />
