@@ -75,7 +75,7 @@ export function Home() {
                   .map((currentProduct, i, array) => {
                     if (
                       currentProduct.category === "CLOTHES" &&
-                      product.isAvaliable === true
+                      currentProduct.isAvaliable === true
                     ) {
                       return (
                         <Card
@@ -163,7 +163,7 @@ export function Home() {
                   .map((currentProduct, i, array) => {
                     if (
                       currentProduct.category === "TECHNOLOGY" &&
-                      product.isAvaliable === true
+                      currentProduct.isAvaliable === true
                     ) {
                       return (
                         <Card
@@ -251,7 +251,7 @@ export function Home() {
                   .map((currentProduct) => {
                     if (
                       currentProduct.category === "HOUSE" &&
-                      product.isAvaliable === true
+                      currentProduct.isAvaliable === true
                     ) {
                       return (
                         <Card
