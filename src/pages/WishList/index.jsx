@@ -15,8 +15,8 @@ export function WishList() {
       <div>
         {wishList.map((product) => {
           return (
-            <Link to={`/product-details/${product._id}`}>
-              <div className="mt-5" key={product._id}>
+            <Link key={product._id} to={`/product-details/${product._id}`}>
+              <div className="mt-5">
                 <div className="max-w-3xl mx-auto bg-white rounded-lg overflow-hidden shadow-md md:flex">
                   <div className="md:flex-shrink-0">
                     <img
