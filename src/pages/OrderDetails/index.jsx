@@ -81,12 +81,8 @@ export function OrderDetails() {
                     <Typography className="text-xl font-bold">
                       Seller address:
                     </Typography>
-                    <Typography>
-                      {`${order.sellerId.street}, ${order.sellerId.houseNumber}/${order.sellerId.apartmentNumber}, ${order.sellerId.neighborhood}`}
-                    </Typography>
-                    <Typography>
-                      {`${order.sellerId.city}, ${order.sellerId.state}`}
-                    </Typography>
+                    <Typography>{order.shipppingAdress}</Typography>
+
                     <Typography className="text-xl font-bold">
                       Delivery address:
                     </Typography>

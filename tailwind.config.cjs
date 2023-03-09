@@ -18,6 +18,17 @@ module.exports = withMT({
       yellow: colors.amber,
       pink: colors.fuchsia,
     },
+    screens: {
+      'tablet': '640px',
+      // => @media (min-width: 640px) { ... }
+    
+      'laptop': '1024px',
+      // => @media (min-width: 1024px) { ... }
+    
+      'desktop': '1367px',
+      // => @media (min-width: 1280px) { ... }
+    }
   },
   plugins: [require('@tailwindcss/line-clamp')],
 });
+
