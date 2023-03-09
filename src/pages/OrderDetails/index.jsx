@@ -65,38 +65,34 @@ export function OrderDetails() {
               </CardHeader>
               <CardBody className="flex space-x-6 items-center ">
                 <div className="flex">
-                  <div>
+                  <div className="w-80 h-80 ">
                     <img
-                      className="h-80 w-80"
                       src={`${order.productId.image}`}
                       alt={order.productId.productName}
                     />
                   </div>
-                  <div className="flex justify-between">
+                  <div className="">
                     <Typography className="text-3xl font-bold">
                       {`${order.productId.productName}`}
                     </Typography>
-                    <Typography className="text-2xl">
-                      {formatter.format(order.totalPrice)}
-                    </Typography>
-                    <Typography className="text-2xl">
-                      Quantity: {order.quantity}
-                    </Typography>
-
-                    <Typography className="text-xl font-bold">
-                      Seller address:
-                    </Typography>
-                    <Typography>{order.shipppingAdress}</Typography>
-
-                    <Typography className="text-xl font-bold">
-                      Delivery address:
-                    </Typography>
-                    <Typography>
-                      {`${order.buyerId.street}, ${order.buyerId.houseNumber}/${order.buyerId.apartmentNumber}, ${order.buyerId.neighborhood}`}
-                    </Typography>
-                    <Typography>
-                      {`${order.buyerId.city}, ${order.buyerId.state}`}
-                    </Typography>
+                    <div className="flex justify-between">
+                      <Typography className="text-2xl">
+                        Quantity: {order.quantity}
+                      </Typography>
+                      <Typography className="text-2xl">
+                        {formatter.format(order.totalPrice)}
+                      </Typography>
+                    </div>
+                    <div className="flex">
+                      <Typography className="text-xl font-bold">
+                        Seller address: {order.shipppingAdress}
+                      </Typography>
+                      <Typography className="text-xl font-bold">
+                        Delivery address:
+                        {`${order.buyerId.street}, ${order.buyerId.houseNumber}/${order.buyerId.apartmentNumber}, ${order.buyerId.neighborhood}`}
+                        {`${order.buyerId.city}, ${order.buyerId.state}`}
+                      </Typography>
+                    </div>
 
                     <Typography className="text-xl font-bold">
                       Status: {order.status}
