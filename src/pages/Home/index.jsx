@@ -73,7 +73,10 @@ export function Home() {
                       .includes(search.toLowerCase());
                   })
                   .map((currentProduct, i, array) => {
-                    if (currentProduct.category === "CLOTHES") {
+                    if (
+                      currentProduct.category === "CLOTHES" &&
+                      product.isAvaliable === true
+                    ) {
                       return (
                         <Card
                           className="max-w-[18rem] max-h-[20rem] overflow-hidden"
@@ -158,7 +161,10 @@ export function Home() {
                       .includes(search.toLowerCase());
                   })
                   .map((currentProduct, i, array) => {
-                    if (currentProduct.category === "TECHNOLOGY") {
+                    if (
+                      currentProduct.category === "TECHNOLOGY" &&
+                      product.isAvaliable === true
+                    ) {
                       return (
                         <Card
                           className="max-w-[18rem] max-h-[20rem] overflow-hidden"
@@ -243,7 +249,10 @@ export function Home() {
                       .includes(search.toLowerCase());
                   })
                   .map((currentProduct) => {
-                    if (currentProduct.category === "HOUSE") {
+                    if (
+                      currentProduct.category === "HOUSE" &&
+                      product.isAvaliable === true
+                    ) {
                       return (
                         <Card
                           className="max-w-[18rem] max-h-[20rem] overflow-hidden"
