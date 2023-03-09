@@ -165,7 +165,7 @@ export function Home() {
         </Slider>
       </div>
 
-      <div className="container flex mx-auto bg-gray-200 rounded-xl m-10 relative">
+      <div className="flex mx-auto bg-gray-200 rounded-xl p-8 m-10">
         <Slider
           dots={true}
           infinite={true}
@@ -218,6 +218,7 @@ export function Home() {
                       </Tooltip>
                     </div>
                     <Link to={`/product-details/${currentProduct._id}`}>
+                      {" "}
                       <Typography className="font-normal text-blue-400 hover:underline hover:text-blue-800">
                         Saiba mais!
                       </Typography>
