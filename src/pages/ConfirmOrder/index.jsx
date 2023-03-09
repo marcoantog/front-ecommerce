@@ -20,8 +20,8 @@ function ConfirmOrder(props) {
     receiveAdress: `${user.city} - ${user.state} / ${user.CEP}`,
     payment: "",
     productId: product._id,
-    totalPrice: product.price * qty,
     quantity: qty,
+    totalPrice: "",
   });
 
   console.log(form);
@@ -32,6 +32,7 @@ function ConfirmOrder(props) {
       return;
     }
     setQty(e.target.value);
+
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
@@ -103,7 +104,7 @@ function ConfirmOrder(props) {
             className="text-green-600 font-bold"
             onChange={handleChange}
             name="totalPrice"
-            value={formatter.format(product.price * qty)}
+            value={product.price * qty}
           />
         </div>
       </div>
@@ -115,7 +116,6 @@ function ConfirmOrder(props) {
           label="PIX"
           onChange={handleChange}
           value={"PIX"}
-          defaultChecked
         />
         <Radio
           id="CREDIT"

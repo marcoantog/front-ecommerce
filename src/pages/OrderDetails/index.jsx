@@ -44,6 +44,11 @@ export function OrderDetails() {
     }
   }
 
+  const formatter = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+
   return (
     <div className="mt-6">
       <div>
@@ -72,7 +77,7 @@ export function OrderDetails() {
                       {`${order.productId.productName}`}
                     </Typography>
                     <Typography className="text-2xl">
-                      R$ {order.totalPrice}
+                      {formatter.format(order.totalPrice)}
                     </Typography>
                     <Typography className="text-2xl">
                       Quantity: {order.quantity}

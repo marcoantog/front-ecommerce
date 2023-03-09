@@ -16,7 +16,10 @@ import "slick-carousel/slick/slick-theme.css";
 
 export function Orders() {
   const [orders, setOrders] = useState([]);
-
+  const formatter = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
   useEffect(() => {
     async function fetchOrders() {
       try {
@@ -38,7 +41,7 @@ export function Orders() {
       <div className="container flex mx-auto bg-gray-200 rounded-xl p-8 m-10 gap-7">
         <Slider
           dots={true}
-          infinite={true}
+          infinite={false}
           speed={500}
           slidesToShow={3}
           slidesToScroll={3}
@@ -70,7 +73,7 @@ export function Orders() {
                     color="white"
                     className="mt-6 flex justify-center gap-1 text-sm font-normal"
                   >
-                    R$ {`${currentOrder.totalPrice}`}
+                    {formatter.format(currentOrder.totalPrice)}
                   </Typography>
                 </CardHeader>
                 <CardBody className="p-0">
