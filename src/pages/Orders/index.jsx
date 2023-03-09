@@ -53,12 +53,14 @@ export function Orders() {
           >
             {orders.map((currentOrder) => {
               return (
-                <Link to={`/order-details/${currentOrder._id}`}>
+                <Link
+                  key={currentOrder._id}
+                  to={`/order-details/${currentOrder._id}`}
+                >
                   <Card
                     color="gray"
                     variant="gradient"
                     className="w-full max-w-[20rem] p-8 transition-scale duration-500 ease-in-out transform hover:scale-110 rounded-lg"
-                    key={currentOrder._id}
                   >
                     <CardHeader
                       floated={false}
@@ -67,7 +69,6 @@ export function Orders() {
                       className="m-0 mb-8 rounded-none border-b border-white/10 pb-8 text-center "
                     >
                       <Typography
-                        variant="large"
                         color="white"
                         className="font-normal uppercase"
                       >
