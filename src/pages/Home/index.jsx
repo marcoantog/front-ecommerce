@@ -42,7 +42,7 @@ export function Home() {
         <Link to="/category-products/CLOTHES"> Roupas</Link>
       </div>
 
-      <div className="flex mx-auto bg-gray-200 rounded-xl p-8 shadow-lg">
+      <div className="flex mx-auto bg-gray-300 rounded-xl p-8 shadow-lg">
         <Slider
           dots={true}
           infinite={false}
@@ -127,7 +127,7 @@ export function Home() {
         <Link to="/category-products/TECHNOLOGY">Tecnologia</Link>
       </div>
 
-      <div className="flex mx-auto bg-gray-200 rounded-xl p-8 shadow-lg ">
+      <div className="flex mx-auto bg-gray-300 rounded-xl p-8 shadow-lg ">
         <Slider
           dots={true}
           infinite={false}
@@ -212,7 +212,7 @@ export function Home() {
         <Link to="/category-products/HOUSE">Casa</Link>
       </div>
 
-      <div className="flex mx-auto bg-gray-200 rounded-xl p-8 shadow-lg">
+      <div className="flex mx-auto bg-gray-300 rounded-xl p-8 shadow-lg">
         <Slider
           dots={true}
           infinite={false}
