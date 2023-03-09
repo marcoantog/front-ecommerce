@@ -36,9 +36,9 @@ export function Orders() {
   return (
     <div className="">
       <div>
-        <h1>Ordens</h1>
+        <h1 className="mt-3 text-xl font-bold">Ordens</h1>
       </div>
-      <div className="container flex mx-auto bg-gray-200 rounded-xl p-8 m-10 gap-7">
+      <div className="container flex mx-auto bg-gray-300 rounded-xl p-8 m-10 gap-7">
         <Slider
           dots={true}
           infinite={false}
@@ -51,7 +51,7 @@ export function Orders() {
             return (
               <Link to={`/order-details/${currentOrder._id}`}>
                 <Card
-                  color="blue"
+                  color="gray"
                   variant="gradient"
                   className="w-full max-w-[20rem] p-8 transition-scale duration-500 ease-in-out transform hover:scale-110 rounded-lg"
                   key={currentOrder._id}
@@ -60,22 +60,18 @@ export function Orders() {
                     floated={false}
                     shadow={false}
                     color="transparent"
-                    className="m-0 mb-8 rounded-none border-b border-white/10 pb-8 text-center"
+                    className="m-0 mb-8 rounded-none border-b border-white/10 pb-8 text-center "
                   >
                     <Typography
-                      variant="small"
+                      variant="large"
                       color="white"
                       className="font-normal uppercase"
                     >
                       {`${currentOrder.productId.productName}`}
                     </Typography>
-                    <Typography
-                      variant="h1"
-                      color="white"
-                      className="mt-6 flex justify-center gap-1 text-sm font-normal"
-                    >
+                    <h1 className="mt-6 flex justify-center gap-1 text-sm font-bold  bg-white">
                       {formatter.format(currentOrder.totalPrice)}
-                    </Typography>
+                    </h1>
                   </CardHeader>
                   <CardBody className="p-0">
                     <ul className="flex flex-col gap-4">
@@ -83,7 +79,7 @@ export function Orders() {
                         <span className="rounded-full border border-white/20 bg-white/20 p-1">
                           <CheckIcon strokeWidth={2} className="h-3 w-3" />
                         </span>
-                        <Typography className="font-normal">
+                        <Typography className="text-sm">
                           Pagamento: {currentOrder.payment}
                         </Typography>
                       </li>
@@ -91,7 +87,7 @@ export function Orders() {
                         <span className="rounded-full border border-white/20 bg-white/20 p-1">
                           <CheckIcon strokeWidth={2} className="h-3 w-3" />
                         </span>
-                        <Typography className="font-normal">
+                        <Typography className="text-sm">
                           Quantidade: {currentOrder.quantity}
                         </Typography>
                       </li>
@@ -99,7 +95,7 @@ export function Orders() {
                         <span className="rounded-full border border-white/20 bg-white/20 p-1">
                           <CheckIcon strokeWidth={2} className="h-3 w-3" />
                         </span>
-                        <Typography className="font-normal">
+                        <Typography className="text-sm">
                           Status: {currentOrder.status}
                         </Typography>
                       </li>
@@ -107,7 +103,7 @@ export function Orders() {
                         <span className="rounded-full border border-white/20 bg-white/20 p-1">
                           <CheckIcon strokeWidth={2} className="h-3 w-3" />
                         </span>
-                        <Typography className="font-normal">
+                        <Typography className="text-sm">
                           Pedido efetuado:{" "}
                           {new Date(
                             currentOrder.createdAt
@@ -117,15 +113,7 @@ export function Orders() {
                     </ul>
                   </CardBody>
                   <CardFooter className="mt-12 p-0">
-                    <Button
-                      size="lg"
-                      color="white"
-                      className="text-blue-500 hover:scale-[1.02] focus:scale-[1.02] active:scale-100"
-                      ripple={false}
-                      fullWidth={true}
-                    >
-                      Ver detalhes
-                    </Button>
+                    <span>Clique para detalhes</span>
                   </CardFooter>
                 </Card>
               </Link>

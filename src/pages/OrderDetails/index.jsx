@@ -52,7 +52,7 @@ export function OrderDetails() {
   return (
     <div className="mt-6">
       <div>
-        <h1>Order Details</h1>
+        <h1 className="mt-3 text-xl font-bold">Order Details</h1>
       </div>
       <div className="flex justify-center ">
         {!load && (
@@ -60,7 +60,7 @@ export function OrderDetails() {
             <Card className="mt-8">
               <CardHeader color="green">
                 <Typography color="white" size="xl">
-                  Order: {order._id}
+                  ID do pedido: {order._id}
                 </Typography>
               </CardHeader>
               <CardBody className="flex space-x-6 items-center ">
