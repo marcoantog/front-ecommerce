@@ -18,6 +18,7 @@ module.exports = withMT({
       yellow: colors.amber,
       pink: colors.fuchsia,
     },
+
     screens: {
       'tablet': '640px',
       // => @media (min-width: 640px) { ... }
