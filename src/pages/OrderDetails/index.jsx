@@ -57,22 +57,22 @@ export function OrderDetails() {
       <div className="flex justify-center ">
         {!load && (
           <>
-            <Card>
+            <Card className="mt-8">
               <CardHeader color="green">
                 <Typography color="white" size="xl">
-                  Order {order._id}
+                  Order: {order._id}
                 </Typography>
               </CardHeader>
               <CardBody className="flex space-x-6 items-center ">
-                <div>
-                  <img
-                    className="max-h-60 max-w-3xl"
-                    src={`${order.productId.image}`}
-                    alt={order.productId.productName}
-                  />
-                </div>
-                <div className="flex justify-between">
+                <div className="flex">
                   <div>
+                    <img
+                      className="h-80 w-80"
+                      src={`${order.productId.image}`}
+                      alt={order.productId.productName}
+                    />
+                  </div>
+                  <div className="flex justify-between">
                     <Typography className="text-3xl font-bold">
                       {`${order.productId.productName}`}
                     </Typography>
@@ -82,8 +82,7 @@ export function OrderDetails() {
                     <Typography className="text-2xl">
                       Quantity: {order.quantity}
                     </Typography>
-                  </div>
-                  <div>
+
                     <Typography className="text-xl font-bold">
                       Seller address:
                     </Typography>
@@ -98,8 +97,7 @@ export function OrderDetails() {
                     <Typography>
                       {`${order.buyerId.city}, ${order.buyerId.state}`}
                     </Typography>
-                  </div>
-                  <div>
+
                     <Typography className="text-xl font-bold">
                       Status: {order.status}
                     </Typography>

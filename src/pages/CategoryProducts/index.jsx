@@ -51,26 +51,25 @@ export function CategoryProducts() {
                       alt={product.productName}
                     />
                   </div>
-                  <div className="p-8 flex flex-col items-start md:flex-1">
-                    <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+                  <div className="p-5  md:flex-1">
+                    <div className=" flex justify-around gap-40 uppercase tracking-wide text-3xl text-indigo-500 font-bold">
                       <p>{product.productName}</p>
-                      <p className="mt-2 text-gray-600 text-sm">
-                        {product.description}
-                      </p>
-                    </div>
-                    <div className="mt-8 flex items-center justify-center ">
-                      <span className="text-green-500 font-semibold text-xl">
+                      <span className="text-green-500 font-semibold text-3xl">
                         R${product.price}
                       </span>
                     </div>
                     <div>
-                      <p className="mx-12 font-bold  ">
-                        Em estoque: {product.quantity}
+                      <div className="flex justify-between text-xl mt-10">
+                        <span className="font-bold ml-4">
+                          Estado: {`${product.isUsed ? " usado" : " novo"}`}
+                        </span>
+                        <p className="font-bold mr-4 ">
+                          Em estoque: {product.quantity}
+                        </p>
+                      </div>
+                      <p className="mt-8 text-gray-600 text-lg">
+                        {product.description}
                       </p>
-                    </div>
-                    <div className="flex justify-center mt-10">
-                      Estado:{" "}
-                      <span> {`${product.isUsed ? " usado" : " novo"}`}</span>
                     </div>
                   </div>
                 </div>
