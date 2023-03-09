@@ -33,7 +33,11 @@ export function Home() {
 
   return (
     <div className="">
-      <div className="flex mx-auto bg-gray-200 rounded-xl p-8 m-10">
+      <div className="grid justify-items-end mr-7 mt-10 font-bold text-2xl text-gray-400 ">
+        Roupas
+      </div>
+
+      <div className="flex mx-auto bg-gray-200 rounded-xl p-8 shadow-lg">
         <Slider
           dots={true}
           infinite={true}
@@ -99,7 +103,10 @@ export function Home() {
         </Slider>
       </div>
 
-      <div className="flex mx-auto bg-gray-200 rounded-xl p-8 m-10">
+      <div className="grid justify-items-end mr-7 mt-10 font-bold text-2xl text-gray-400 ">
+        Tecnologia
+      </div>
+      <div className="flex mx-auto bg-gray-200 rounded-xl p-8 shadow-lg ">
         <Slider
           dots={true}
           infinite={true}
@@ -165,7 +172,10 @@ export function Home() {
         </Slider>
       </div>
 
-      <div className="flex mx-auto bg-gray-200 rounded-xl p-8 m-10">
+      <div className="grid justify-items-end mr-7 mt-10 font-bold text-2xl text-gray-400 ">
+        Casa
+      </div>
+      <div className="flex mx-auto bg-gray-200 rounded-xl p-8">
         <Slider
           dots={true}
           infinite={true}

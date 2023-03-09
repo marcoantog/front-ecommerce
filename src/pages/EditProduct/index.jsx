@@ -15,6 +15,7 @@ export function EditProduct() {
   const params = useParams();
   const [product, setProduct] = useState({});
   const [img, setImg] = useState("");
+  const [load, setLoad] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,6 +24,7 @@ export function EditProduct() {
         `/product/product-details/${params.productId}`
       );
       setProduct({ ...response.data });
+      setLoad(false);
     }
 
     fetchProduct();
@@ -58,11 +60,13 @@ export function EditProduct() {
         image: imgURL,
       });
 
-      navigate("/");
+      navigate(`/product-details/${params.productId}`);
     } catch (err) {
       console.log(err);
     }
   }
+
+  console.log();
 
   return (
     <div>
@@ -144,13 +148,15 @@ export function EditProduct() {
                   id="isUsed"
                   name="isUsed"
                   label="Novo"
-                  value={(product.isUsed = true) || ""}
+                  value={true}
+                  onChange={handleChange}
                 />
                 <Radio
                   id="Used"
                   name="isUsed"
                   label="Usado"
-                  value={(product.isUsed = false) || ""}
+                  value={false}
+                  onChange={handleChange}
                 />
               </div>
               <Button color="green" className="mt-6" fullWidth type="submit">

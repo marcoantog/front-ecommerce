@@ -124,7 +124,7 @@ export default function NavBar() {
                 <Link to="/create-product">Vender</Link>
               </li>
               <li className="text-gray-600 text-sm  hover:text-blue-600">
-                <Link to="/wish-list">wishlist</Link>
+                <Link to="/wish-list">Wishlist ♥</Link>
               </li>
               <li>
                 <Button color="red" onClick={handleLogOut}>
