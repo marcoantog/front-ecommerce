@@ -63,14 +63,14 @@ export function Orders() {
                     color="white"
                     className="font-normal uppercase"
                   >
-                    Produto: {`${currentOrder.productId.productName}`}
+                    {`${currentOrder.productId.productName}`}
                   </Typography>
                   <Typography
                     variant="h1"
                     color="white"
                     className="mt-6 flex justify-center gap-1 text-sm font-normal"
                   >
-                    Preço: {`${currentOrder.totalPrice}`}
+                    R$ {`${currentOrder.totalPrice}`}
                   </Typography>
                 </CardHeader>
                 <CardBody className="p-0">
@@ -95,14 +95,17 @@ export function Orders() {
                       <span className="rounded-full border border-white/20 bg-white/20 p-1">
                         <CheckIcon strokeWidth={2} className="h-3 w-3" />
                       </span>
-                      <Typography className="font-normal">f</Typography>
+                      <Typography className="font-normal">
+                        Status: {currentOrder.status}
+                      </Typography>
                     </li>
                     <li className="flex items-center gap-4">
                       <span className="rounded-full border border-white/20 bg-white/20 p-1">
                         <CheckIcon strokeWidth={2} className="h-3 w-3" />
                       </span>
                       <Typography className="font-normal">
-                        Status: {currentOrder.status}
+                        Pedido efetuado:{" "}
+                        {new Date(currentOrder.createdAt).toLocaleDateString()}
                       </Typography>
                     </li>
                     <li className="flex items-center gap-4">

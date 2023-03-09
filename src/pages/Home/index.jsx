@@ -33,9 +33,11 @@ export function Home() {
 
   return (
     <div className="">
-      <div className="grid justify-items-end mr-7 mt-10 font-bold text-2xl text-gray-400 ">
-        Roupas
-      </div>
+      <Link to="/category-products/CLOTHES">
+        <div className="grid justify-items-end mr-7 mt-10 font-bold text-2xl text-gray-400 ">
+          Roupas
+        </div>
+      </Link>
 
       <div className="flex mx-auto bg-gray-200 rounded-xl p-8 shadow-lg">
         <Slider
@@ -103,9 +105,12 @@ export function Home() {
         </Slider>
       </div>
 
-      <div className="grid justify-items-end mr-7 mt-10 font-bold text-2xl text-gray-400 ">
-        Tecnologia
-      </div>
+      <Link to="/category-products/TECHNOLOGY">
+        {" "}
+        <div className="grid justify-items-end mr-7 mt-10 font-bold text-2xl text-gray-400 ">
+          Tecnologia
+        </div>
+      </Link>
       <div className="flex mx-auto bg-gray-200 rounded-xl p-8 shadow-lg ">
         <Slider
           dots={true}
@@ -172,9 +177,12 @@ export function Home() {
         </Slider>
       </div>
 
-      <div className="grid justify-items-end mr-7 mt-10 font-bold text-2xl text-gray-400 ">
-        Casa
-      </div>
+      <Link to="/category-products/HOUSE">
+        {" "}
+        <div className="grid justify-items-end mr-7 mt-10 font-bold text-2xl text-gray-400 ">
+          Casa
+        </div>
+      </Link>
       <div className="flex mx-auto bg-gray-200 rounded-xl p-8">
         <Slider
           dots={true}
