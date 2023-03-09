@@ -49,78 +49,74 @@ export function Orders() {
         >
           {orders.map((currentOrder) => {
             return (
-              <Card
-                color="blue"
-                variant="gradient"
-                className="w-full max-w-[20rem] p-8 transition-scale duration-500 ease-in-out transform hover:scale-110 rounded-lg"
-                key={currentOrder._id}
-              >
-                <CardHeader
-                  floated={false}
-                  shadow={false}
-                  color="transparent"
-                  className="m-0 mb-8 rounded-none border-b border-white/10 pb-8 text-center"
+              <Link to={`/order-details/${currentOrder._id}`}>
+                <Card
+                  color="blue"
+                  variant="gradient"
+                  className="w-full max-w-[20rem] p-8 transition-scale duration-500 ease-in-out transform hover:scale-110 rounded-lg"
+                  key={currentOrder._id}
                 >
-                  <Typography
-                    variant="small"
-                    color="white"
-                    className="font-normal uppercase"
+                  <CardHeader
+                    floated={false}
+                    shadow={false}
+                    color="transparent"
+                    className="m-0 mb-8 rounded-none border-b border-white/10 pb-8 text-center"
                   >
-                    {`${currentOrder.productId.productName}`}
-                  </Typography>
-                  <Typography
-                    variant="h1"
-                    color="white"
-                    className="mt-6 flex justify-center gap-1 text-sm font-normal"
-                  >
-                    {formatter.format(currentOrder.totalPrice)}
-                  </Typography>
-                </CardHeader>
-                <CardBody className="p-0">
-                  <ul className="flex flex-col gap-4">
-                    <li className="flex items-center gap-4">
-                      <span className="rounded-full border border-white/20 bg-white/20 p-1">
-                        <CheckIcon strokeWidth={2} className="h-3 w-3" />
-                      </span>
-                      <Typography className="font-normal">
-                        Pagamento: {currentOrder.payment}
-                      </Typography>
-                    </li>
-                    <li className="flex items-center gap-4">
-                      <span className="rounded-full border border-white/20 bg-white/20 p-1">
-                        <CheckIcon strokeWidth={2} className="h-3 w-3" />
-                      </span>
-                      <Typography className="font-normal">
-                        Quantidade: {currentOrder.quantity}
-                      </Typography>
-                    </li>
-                    <li className="flex items-center gap-4">
-                      <span className="rounded-full border border-white/20 bg-white/20 p-1">
-                        <CheckIcon strokeWidth={2} className="h-3 w-3" />
-                      </span>
-                      <Typography className="font-normal">
-                        Status: {currentOrder.status}
-                      </Typography>
-                    </li>
-                    <li className="flex items-center gap-4">
-                      <span className="rounded-full border border-white/20 bg-white/20 p-1">
-                        <CheckIcon strokeWidth={2} className="h-3 w-3" />
-                      </span>
-                      <Typography className="font-normal">
-                        Pedido efetuado:{" "}
-                        {new Date(currentOrder.createdAt).toLocaleDateString()}
-                      </Typography>
-                    </li>
-                    <li className="flex items-center gap-4">
-                      <span className="rounded-full border border-white/20 bg-white/20 p-1">
-                        <CheckIcon strokeWidth={2} className="h-3 w-3" />
-                      </span>
-                      <Typography className="font-normal">f</Typography>
-                    </li>
-                  </ul>
-                </CardBody>
-                <CardFooter className="mt-12 p-0">
-                  <Link to={`/order-details/${currentOrder._id}`}>
+                    <Typography
+                      variant="small"
+                      color="white"
+                      className="font-normal uppercase"
+                    >
+                      {`${currentOrder.productId.productName}`}
+                    </Typography>
+                    <Typography
+                      variant="h1"
+                      color="white"
+                      className="mt-6 flex justify-center gap-1 text-sm font-normal"
+                    >
+                      {formatter.format(currentOrder.totalPrice)}
+                    </Typography>
+                  </CardHeader>
+                  <CardBody className="p-0">
+                    <ul className="flex flex-col gap-4">
+                      <li className="flex items-center gap-4">
+                        <span className="rounded-full border border-white/20 bg-white/20 p-1">
+                          <CheckIcon strokeWidth={2} className="h-3 w-3" />
+                        </span>
+                        <Typography className="font-normal">
+                          Pagamento: {currentOrder.payment}
+                        </Typography>
+                      </li>
+                      <li className="flex items-center gap-4">
+                        <span className="rounded-full border border-white/20 bg-white/20 p-1">
+                          <CheckIcon strokeWidth={2} className="h-3 w-3" />
+                        </span>
+                        <Typography className="font-normal">
+                          Quantidade: {currentOrder.quantity}
+                        </Typography>
+                      </li>
+                      <li className="flex items-center gap-4">
+                        <span className="rounded-full border border-white/20 bg-white/20 p-1">
+                          <CheckIcon strokeWidth={2} className="h-3 w-3" />
+                        </span>
+                        <Typography className="font-normal">
+                          Status: {currentOrder.status}
+                        </Typography>
+                      </li>
+                      <li className="flex items-center gap-4">
+                        <span className="rounded-full border border-white/20 bg-white/20 p-1">
+                          <CheckIcon strokeWidth={2} className="h-3 w-3" />
+                        </span>
+                        <Typography className="font-normal">
+                          Pedido efetuado:{" "}
+                          {new Date(
+                            currentOrder.createdAt
+                          ).toLocaleDateString()}
+                        </Typography>
+                      </li>
+                    </ul>
+                  </CardBody>
+                  <CardFooter className="mt-12 p-0">
                     <Button
                       size="lg"
                       color="white"
@@ -130,9 +126,9 @@ export function Orders() {
                     >
                       Ver detalhes
                     </Button>
-                  </Link>
-                </CardFooter>
-              </Card>
+                  </CardFooter>
+                </Card>
+              </Link>
             );
           })}
         </Slider>

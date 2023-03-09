@@ -64,18 +64,19 @@ export function OrderDetails() {
                 </Typography>
               </CardHeader>
               <CardBody className="flex space-x-6 items-center ">
-                <div className="flex">
-                  <div className="w-80 h-80 ">
+                <div className="flex gap-4  ">
+                  <div className="w-76 h-96">
                     <img
+                      className="w-full h-full "
                       src={`${order.productId.image}`}
                       alt={order.productId.productName}
                     />
                   </div>
-                  <div className="">
-                    <Typography className="text-3xl font-bold">
+                  <div className="px-24 bg-brown-50 bord ">
+                    <Typography className="text-3xl font-bold text-green-500 uppercase mt-3 ">
                       {`${order.productId.productName}`}
                     </Typography>
-                    <div className="flex justify-between">
+                    <div className="flex justify-around mt-9 ">
                       <Typography className="text-2xl">
                         Quantity: {order.quantity}
                       </Typography>
@@ -83,31 +84,40 @@ export function OrderDetails() {
                         {formatter.format(order.totalPrice)}
                       </Typography>
                     </div>
-                    <div className="flex">
-                      <Typography className="text-xl font-bold">
-                        Seller address: {order.shipppingAdress}
+                    <div className="mt-9">
+                      <Typography className="text-xl font-semibold  text-blue-gray-600 ">
+                        Seller address:
                       </Typography>
-                      <Typography className="text-xl font-bold">
+                      <Typography className="text-md">
+                        {order.shipppingAdress}
+                      </Typography>
+                    </div>
+                    <div className="mt-9">
+                      <Typography className="text-xl font-semibold  text-blue-gray-600 ">
                         Delivery address:
-                        {`${order.buyerId.street}, ${order.buyerId.houseNumber}/${order.buyerId.apartmentNumber}, ${order.buyerId.neighborhood}`}
+                      </Typography>
+                      <Typography className="text-md">
+                        {`${order.buyerId.street}, ${order.buyerId.houseNumber}/${order.buyerId.apartmentNumber}, ${order.buyerId.neighborhood}. `}
                         {`${order.buyerId.city}, ${order.buyerId.state}`}
                       </Typography>
                     </div>
-
-                    <Typography className="text-xl font-bold">
-                      Status: {order.status}
-                    </Typography>
+                    <div className="flex justify-around mt-12">
+                      <Typography color="gray">
+                        Order placed on{" "}
+                        {new Date(order.createdAt).toLocaleDateString()}
+                      </Typography>
+                      <Typography className="text-xl font-semibold text-blue-gray-600 ">
+                        Status: {order.status}
+                      </Typography>
+                    </div>
                   </div>
                 </div>
               </CardBody>
-              <CardFooter>
-                <Typography color="gray">
-                  Order placed on{" "}
-                  {new Date(order.createdAt).toLocaleDateString()}
-                </Typography>
+              <CardFooter className="pb-4">
+                <span>{`${order.status}`}</span>
               </CardFooter>
-              <span>{`${order.status}`}</span>
-              <Progress value={handleProgress()} />
+
+              <Progress color="green" value={handleProgress()} />
             </Card>
           </>
         )}
