@@ -18,6 +18,7 @@ import { EditProduct } from "./pages/EditProduct";
 import { CategoryProducts } from "./pages/CategoryProducts";
 import { WishList } from "./pages/WishList";
 import { WishListComponent } from "./context/WishListContext";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -68,6 +69,7 @@ function App() {
             />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
+          <Footer />
         </WishListComponent>
       </AuthContextComponent>
     </div>
