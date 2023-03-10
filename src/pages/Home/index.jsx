@@ -199,7 +199,11 @@ export function Home() {
                             </div>
                           </CardHeader>
                           <CardBody className="pb-1 pt-1">
-                            <Typography variant="h6" color="blue-gray">
+                            <Typography
+                              variant="h6"
+                              color="blue-gray"
+                              className="line-clamp-1"
+                            >
                               {currentProduct.productName}
                             </Typography>
                             <Typography
@@ -287,7 +291,11 @@ export function Home() {
                             </div>
                           </CardHeader>
                           <CardBody className="pb-1 pt-1">
-                            <Typography variant="h6" color="blue-gray">
+                            <Typography
+                              className="line-clamp-1"
+                              variant="h6"
+                              color="blue-gray"
+                            >
                               {currentProduct.productName}
                             </Typography>
                             <Typography
