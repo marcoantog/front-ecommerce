@@ -57,9 +57,11 @@ export function WishList() {
                       Em estoque: {product.quantity}
                     </p>
                   </div>
-                  <p className="mt-8 text-gray-600 text-lg line-clamp-3">
-                    {product.description}
-                  </p>
+                  <div className="line-clamp-3">
+                    <p className="mt-8 text-gray-600 text-lg ">
+                      {product.description}
+                    </p>
+                  </div>
                 </div>
                 <div className="flex justify-around mt-3">
                   <Link to={`/product-details/${product._id}`}>
