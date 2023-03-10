@@ -34,19 +34,20 @@ export function ProductsUser() {
   return (
     <div>
       <h1>Meus produtos a venda</h1>
+
       {!load && (
-        <>
-          <div className="flex mx-auto bg-gray-200 rounded-xl p-8 m-10">
-            <Slider
-              dots={true}
-              infinite={false}
-              speed={500}
-              slidesToShow={3}
-              slidesToScroll={3}
-              className="w-full h-full"
-            >
-              {products.map((currentProduct) => {
-                return (
+        <div className="flex mx-auto bg-gray-200 rounded-xl p-8 m-10">
+          <Slider
+            dots={true}
+            infinite={false}
+            speed={500}
+            slidesToShow={3}
+            slidesToScroll={3}
+            className="w-full h-full"
+          >
+            {products.map((currentProduct) => {
+              return (
+                <>
                   <Card
                     className="max-w-[18rem] max-h-[20rem] overflow-hidden"
                     key={currentProduct._id}
@@ -79,30 +80,19 @@ export function ProductsUser() {
                         {currentProduct.description}
                       </Typography>
                     </CardBody>
-                    <CardFooter className="flex items-center justify-between pt-1">
-                      <div className="flex items-center -space-x-3">
-                        <Tooltip content={currentProduct.sellerId.name}>
-                          <Avatar
-                            size="sm"
-                            variant="circular"
-                            alt={currentProduct.sellerId.name}
-                            src={currentProduct.sellerId.image}
-                            className="border-2 border-white hover:z-10"
-                          />
-                        </Tooltip>
-                      </div>
+                    <CardFooter className="flex items-center justify-center pt-1">
                       <Link to={`/product-details/${currentProduct._id}`}>
                         <Typography className="font-normal text-blue-400 hover:underline hover:text-blue-800">
-                          Saiba mais!
+                          Acessar produto!
                         </Typography>
                       </Link>
                     </CardFooter>
                   </Card>
-                );
-              })}
-            </Slider>
-          </div>
-        </>
+                </>
+              );
+            })}
+          </Slider>
+        </div>
       )}
     </div>
   );
