@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { WishListContext } from "../../context/WishListContext";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 export function WishList() {
   const { wishList, setWishList } = useContext(WishListContext);
@@ -30,6 +30,7 @@ export function WishList() {
       <div className="grid w-full flex-col justify-center">
         {wishList.map((product, i) => {
           return (
+
             <div
               key={product._id}
               className="w-6xl mt-3 bg-white rounded-lg overflow-hidden shadow-md md:flex"
@@ -47,6 +48,7 @@ export function WishList() {
                   <span className="text-green-500 font-semibold text-3xl">
                     R${product.price}
                   </span>
+
                 </div>
                 <div>
                   <div className="flex justify-between text-xl mt-10">
