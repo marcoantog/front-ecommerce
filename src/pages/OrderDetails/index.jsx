@@ -52,7 +52,7 @@ export function OrderDetails() {
   return (
     <div className="mt-6">
       <div>
-        <h1 className="mt-3 text-xl font-bold">Order Details</h1>
+        <h1 className="mt-3 text-xl font-bold"> Detalhes do pedido</h1>
       </div>
       <div className="flex justify-center ">
         {!load && (

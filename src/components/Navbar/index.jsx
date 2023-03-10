@@ -118,7 +118,7 @@ export default function NavBar() {
                 <Link to="/profile">Usuário</Link>
               </li>
               <li className="text-gray-600 text-sm hover:text-blue-600">
-                <Link to="/orders">Ordens</Link>
+                <Link to="/orders">Pedidos</Link>
               </li>
               <li className="text-gray-600 text-sm  hover:text-blue-600">
                 <Link to="/create-product">Vender</Link>
