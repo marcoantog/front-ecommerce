@@ -39,7 +39,7 @@ export function ProductsUser() {
           <div className="flex mx-auto bg-gray-200 rounded-xl p-8 m-10">
             <Slider
               dots={true}
-              infinite={true}
+              infinite={false}
               speed={500}
               slidesToShow={3}
               slidesToScroll={3}
