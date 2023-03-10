@@ -88,7 +88,7 @@ export function Profile() {
         </Card>
         <Link to="/orders">
           <Typography className="text-blue-400 hover:text-blue-800 mt-5">
-            Minhas ordens
+            Meus pedidos
           </Typography>
         </Link>
         <Link to="/products-user">

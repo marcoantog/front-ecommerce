@@ -39,7 +39,7 @@ export function Orders() {
   return (
     <div className="">
       <div>
-        <h1 className="mt-3 text-xl font-bold">Ordens</h1>
+        <h1 className="mt-3 text-xl font-bold">Pedidos</h1>
       </div>
       {!load && (
         <div className="container flex mx-auto bg-gray-300 rounded-xl p-8 m-10 gap-7">
