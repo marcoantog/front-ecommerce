@@ -128,6 +128,13 @@ export function ProductDetails() {
                     {formatter.format(product.price)}
                   </span>
                 </div>
+                <div className={product.quantity === 0 ? "my-3" : "hidden"}>
+                  Produto sem <b className="text-red-500">estoque</b>, para mais
+                  informações entre em contato com o vendedor. E-mail:{" "}
+                  <span className="font-bold text-blue-400">
+                    {product.sellerId.email}
+                  </span>
+                </div>
                 <Accordion open={open === 0}>
                   <AccordionHeader onClick={() => handleToggle(1)}>
                     Descrição

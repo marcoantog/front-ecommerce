@@ -12,6 +12,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 export function Login() {
   const [form, setForm] = useState({
@@ -39,6 +40,7 @@ export function Login() {
       navigate(`/`);
     } catch (error) {
       console.log(error);
+      toast.error("Usuário e/ou senha errados.");
     }
   }
 

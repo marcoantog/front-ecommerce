@@ -24,7 +24,6 @@ function ConfirmOrder(props) {
     totalPrice: product.price,
   });
 
-  console.log(form);
   function handleQty(e) {
     if (e.target.value < 1) {
       return;
