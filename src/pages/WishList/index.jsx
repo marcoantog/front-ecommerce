@@ -24,7 +24,7 @@ export function WishList() {
   return (
     <div>
       <div>
-        <h1>Favoritos</h1>
+        <h1 className="mt-3 text-xl font-bold">Favoritos</h1>
       </div>
 
       <div className="grid w-full flex-col justify-center">
