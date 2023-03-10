@@ -24,7 +24,7 @@ export function WishList() {
   return (
     <div>
       <div>
-        <h1>Favoritos</h1>
+        <h1 className="mt-3 text-xl font-bold">Favoritos</h1>
       </div>
 
       <div className="grid w-full flex-col justify-center">
@@ -71,7 +71,7 @@ export function WishList() {
                     className="bg-red-400 ml-4 border rounded-lg px-8 py-2 hover:border-indigo-500"
                     onClick={() => removeFromWishList(product._id)}
                   >
-                    remover
+                    Remover
                   </button>
                 </div>
               </div>
