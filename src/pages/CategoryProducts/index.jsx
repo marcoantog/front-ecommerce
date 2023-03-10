@@ -68,7 +68,7 @@ export function CategoryProducts() {
                           Em estoque: {product.quantity}
                         </p>
                       </div>
-                      <p className="mt-8 text-gray-600 text-lg">
+                      <p className="mt-8 text-gray-600 text-lg line-clamp-3">
                         {product.description}
                       </p>
                     </div>
