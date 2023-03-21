@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { api } from "../../api/api";
 import { Link, useNavigate } from "react-router-dom";
-import { Card, Input, Button, Typography } from "@material-tailwind/react";
+import { Card, Input, Button, Typography, Checkbox } from "@material-tailwind/react";
+import { toast } from "react-hot-toast";
 
 export function Signup() {
   const navigate = useNavigate();
@@ -47,10 +48,15 @@ export function Signup() {
     e.preventDefault();
 
     try {
-      const imgURL = await handleUpload();
-      await api.post("/user/signup", { ...form, image: imgURL });
+      if(form.password === form.confirmPassword) {
+        const imgURL = await handleUpload();
+        await api.post("/user/signup", { ...form, image: imgURL });
+  
+        navigate("/login");
+      }
+      
 
-      navigate("/login");
+      toast.error("Passwords don't match.")
     } catch (error) {
       console.log(error);
     }
@@ -60,10 +66,10 @@ export function Signup() {
     <>
       <Card color="transparent" shadow={false} className="mt-7">
         <Typography variant="h4" color="blue-gray">
-          Cadastro
+          Register
         </Typography>
         <Typography color="gray" className="mt-1 font-normal">
-          Para criar sua conta precisamos de alguns dados.
+          Enter your details to register.
         </Typography>
         <div className="flex justify-center">
           <form
@@ -94,8 +100,8 @@ export function Signup() {
                       ></path>
                     </svg>
                     <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                      <span className="font-semibold">Clique para incluir</span>{" "}
-                      a sua imagem.
+                      <span className="font-semibold">Click here to upload</span>{" "}
+                      your image.
                     </p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
                       SVG, PNG, JPG or GIF
@@ -115,7 +121,7 @@ export function Signup() {
 
               <Input
                 size="lg"
-                label="Usuário"
+                label="User"
                 id="formUser"
                 name="userName"
                 value={form.userName}
@@ -124,7 +130,7 @@ export function Signup() {
               />
               <Input
                 size="lg"
-                label="Nome completo"
+                label="Complete name"
                 name="name"
                 value={form.name}
                 required
@@ -132,7 +138,7 @@ export function Signup() {
               />
               <Input
                 size="lg"
-                label="Rua"
+                label="Street"
                 name="street"
                 value={form.street}
                 type="text"
@@ -141,7 +147,7 @@ export function Signup() {
               />
               <Input
                 size="lg"
-                label="Número"
+                label="Number"
                 name="houseNumber"
                 value={form.houseNumber}
                 type="number"
@@ -150,7 +156,7 @@ export function Signup() {
               />
               <Input
                 size="lg"
-                label="Complemento"
+                label="Adress Line 1"
                 name="apartmentNumber"
                 value={form.apartmentNumber}
                 type="text"
@@ -158,7 +164,7 @@ export function Signup() {
               />
               <Input
                 size="lg"
-                label="Cidade"
+                label="City"
                 name="city"
                 value={form.city}
                 type="text"
@@ -167,7 +173,7 @@ export function Signup() {
 
               <Input
                 size="lg"
-                label="Bairro"
+                label="neighborhood"
                 name="neighborhood"
                 value={form.neighborhood}
                 type="text"
@@ -176,18 +182,17 @@ export function Signup() {
 
               <Input
                 size="lg"
-                label="Estado"
+                label="State/Province"
                 name="state"
                 value={form.state}
                 type="text"
                 maxLength="2"
-                list="estados"
                 onChange={handleChange}
               />
 
               <Input
                 size="lg"
-                label="CEP"
+                label="Zip/Postal Code"
                 name="CEP"
                 value={form.CEP}
                 type="text"
@@ -225,52 +230,42 @@ export function Signup() {
                 value={form.confirmPassword}
                 onChange={handleChange}
               />
+           <Checkbox
+          label={
+            (
+              <Typography
+                variant="small"
+                color="gray"
+                className="flex items-center font-normal"
+              >
+                I agree the
+                <Link className="font-medium transition-colors hover:text-blue-500">
+                  &nbsp;Terms and Conditions
+                </Link>
+              </Typography>
+            )
+          }
+          containerProps={{ className: "-ml-2.5" }}
+        />
             </div>
 
             <Button className="mt-6" fullWidth type="submit">
               Register
             </Button>
             <Typography color="gray" className="mt-4 text-center font-normal">
-              Já tem uma conta?{" "}
+              Already have an account?{" "}
               <Link
                 to="/login"
                 className="font-medium text-blue-500 transition-colors hover:text-blue-700"
               >
-                Login
+                Sign In
               </Link>
             </Typography>
           </form>
         </div>
       </Card>
 
-      <datalist id="estados">
-        <option value="AC">AC</option>
-        <option value="AP">AP</option>
-        <option value="AM">AM</option>
-        <option value="BA">BA</option>
-        <option value="CE">CE</option>
-        <option value="DF">DF</option>
-        <option value="ES">ES</option>
-        <option value="GO">GO</option>
-        <option value="MA">MA</option>
-        <option value="MT">MT</option>
-        <option value="MS">MS</option>
-        <option value="MG">MG</option>
-        <option value="PA">PA</option>
-        <option value="PB">PB</option>
-        <option value="PR">PR</option>
-        <option value="PE">PE</option>
-        <option value="PI">PI</option>
-        <option value="RJ">RJ</option>
-        <option value="RN">RN</option>
-        <option value="RS">RS</option>
-        <option value="RO">RO</option>
-        <option value="RR">RR</option>
-        <option value="SC">SC</option>
-        <option value="SP">SP</option>
-        <option value="SE">SE</option>
-        <option value="TO">TO</option>
-      </datalist>
+      
     </>
   );
 }
