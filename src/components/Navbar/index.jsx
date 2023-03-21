@@ -1,8 +1,10 @@
 import { useState, useContext } from "react";
-import Dropdown from "./dropdown";
+import Dropdown from "./dropdownCategorys";
+import DropdownUser from "./dropdownUser";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@material-tailwind/react";
 import { AuthContext } from "../../context/authContext";
+import DropdownCategorys from "./dropdownCategorys";
 
 export default function NavBar() {
   const [loggedNavbar, setLoggedNavbar] = useState(false);
@@ -112,19 +114,20 @@ export default function NavBar() {
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               <li>
-                <Dropdown />
+                <DropdownCategorys />
               </li>
+
               <li className="text-gray-600 text-sm hover:text-blue-600">
-                <Link to="/profile">Usuário</Link>
-              </li>
-              <li className="text-gray-600 text-sm hover:text-blue-600">
-                <Link to="/orders">Pedidos</Link>
+                <Link to="/orders">Orders</Link>
               </li>
               <li className="text-gray-600 text-sm  hover:text-blue-600">
-                <Link to="/create-product">Vender</Link>
+                <Link to="/create-product">Sell</Link>
               </li>
-              <li className="text-gray-600 text-sm  hover:text-blue-600">
-                <Link to="/wish-list">Wishlist ♥</Link>
+
+              <li className="text-gray-600 text-sm hover:text-blue-600">
+                <Link to="/profile">
+                  <DropdownUser />
+                </Link>
               </li>
               <li>
                 <Button color="red" onClick={handleLogOut}>
