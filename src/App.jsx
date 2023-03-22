@@ -61,7 +61,7 @@ function App() {
             />
             <Route
               path="category-products/:category"
-              element={<ProtectedRoute component={CategoryProducts} />}
+              element={<CategoryProducts />}
             />
             <Route
               path="/wish-list"

@@ -43,13 +43,18 @@ export function Home() {
   return (
     <>
       <div className={loggedInUser ? "hidden" : "m-8 flex justify-center"}>
-        <Link to="/signup">
-          <img
-            src={"https://i.imgur.com/PprmzJk.png"}
-            alt="Bem vindo"
-            className="h-screen"
-          />
-        </Link>
+      <Slider
+                dots={true}
+                infinite={false}
+                speed={500}
+                slidesToShow={1}
+                slidesToScroll={1}
+                className="w-full h-full"
+              > <div><Link to="/category-products/HOUSE"><img src={"https://i.imgur.com/HOrfDlV.png"} alt="House Category" /> </Link></div>
+              <div><Link to="/category-products/TECHNOLOGY"><img src={"https://i.imgur.com/nUczHgS.png"} alt="Technology Category" /> </Link></div>
+              <div><Link to="/category-products/CLOTHES"><img src={"https://i.imgur.com/jLdGh0v.png"} alt="Clothes Category" /> </Link></div>
+              </Slider>
+        
       </div>
       {!load && (
         <>
